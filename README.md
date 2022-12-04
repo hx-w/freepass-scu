@@ -1,5 +1,6 @@
 # Freepass-SCU
-the fake pass of SCU
+
+一个不存在的SCU校园通行证
 
 ## Usage
 
@@ -14,7 +15,7 @@ the fake pass of SCU
 |`phone`|18345678901|
 |`teacher`|王强|
 
-**以上默认信息均为虚构**
+以上默认信息均为虚构
 
-**有效日期：昨天 --- 一周后**
+有效日期：**昨天** --- **一周后**
 
