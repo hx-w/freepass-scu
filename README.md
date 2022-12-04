@@ -1,5 +1,7 @@
 # Freepass-SCU
 
+[![Netlify Status](https://api.netlify.com/api/v1/badges/11a59415-2731-444c-8c90-d3ea80d75f12/deploy-status)](https://app.netlify.com/sites/scu-pass/deploys)
+
 一个不存在的SCU校园通行证
 
 ## Usage
