@@ -1,8 +1,8 @@
 @font-face {
   font-family: "iconfont"; /* Project id 1497825 */
-  src: url(https://service.scu.edu.cn/v2/static/fonts/iconfont.f5fc996a.woff2) format('woff2'),
-       url(https://service.scu.edu.cn/v2/static/fonts/iconfont.77691af5.woff) format('woff'),
-       url(https://service.scu.edu.cn/v2/static/fonts/iconfont.14958442.ttf) format('truetype');
+  src: url(./fonts/iconfont.f5fc996a.woff2) format('woff2'),
+       url(./fonts/iconfont.77691af5.woff) format('woff'),
+       url(./fonts/iconfont.14958442.ttf) format('truetype');
 }
 
 .iconfont {
