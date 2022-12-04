@@ -3,6 +3,7 @@ const params = new URLSearchParams(window.location.search);
 
 // change the value of document by id
 function changeValue(id, value, defaultValue) {
+    console.log(id, value, defaultValue);
     if (value == null) {
         value = defaultValue;
     }
