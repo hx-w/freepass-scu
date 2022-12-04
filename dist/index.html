@@ -1,250 +1,1881 @@
 <!DOCTYPE html>
 <!-- saved from url=(0076)https://service.scu.edu.cn/v2/matter/m_examine?type=launch&inst_id=109705057 -->
-<html lang="zh-cn" style="font-size: 106.667px;" data-redeviation-bs-uid="86430"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,minimum-scale=1"><title>通勤报备</title><style>body{-webkit-text-size-adjust:100% !important;}</style><script async="" id="beacon-aplus" src="./static/204458013.js"></script><script>(function() {
-    if (typeof WeixinJSBridge == "object" && typeof WeixinJSBridge.invoke == "function") {
-        handleFontSize();
-    } else {
-        if (document.addEventListener) {
-            document.addEventListener("WeixinJSBridgeReady", handleFontSize, false);
-        } else if (document.attachEvent) {
+<html lang="zh-cn" style="font-size: 106.667px" data-redeviation-bs-uid="86430">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta
+      name="viewport"
+      content="width=device-width,initial-scale=1,maximum-scale=1,minimum-scale=1"
+    />
+    <title>通勤报备</title>
+    <style>
+      body {
+        -webkit-text-size-adjust: 100% !important;
+      }
+    </style>
+    <script async="" id="beacon-aplus" src="./static/204458013.js"></script>
+    <script>
+      (function () {
+        if (
+          typeof WeixinJSBridge == "object" &&
+          typeof WeixinJSBridge.invoke == "function"
+        ) {
+          handleFontSize();
+        } else {
+          if (document.addEventListener) {
+            document.addEventListener(
+              "WeixinJSBridgeReady",
+              handleFontSize,
+              false
+            );
+          } else if (document.attachEvent) {
             document.attachEvent("WeixinJSBridgeReady", handleFontSize);
             document.attachEvent("onWeixinJSBridgeReady", handleFontSize);
+          }
         }
-    }
-    function handleFontSize() {
-        WeixinJSBridge.invoke('setFontSizeCallback', { 'fontSize' : 0 });
-        WeixinJSBridge.on('menu:setfont', function() {
-            WeixinJSBridge.invoke('setFontSizeCallback', { 'fontSize' : 0 });
-        });
-    }
-    })();
-    // 教育部埋点
-    (function(w, d, s, q) { 
-      w[q] =w[q] || []; 
-      var f=d.getElementsByTagName(s)[0],j=d.createElement(s); 
-      j.async=true; 
-      j.id='beacon-aplus'; 
-      j.src='https://d.alicdn.com/alilog/mlog/aplus/204458013.js'; 
-      f.parentNode.insertBefore(j, f);
-    })(window, document, 'script', 'aplus_queue');
-    aplus_queue.push({ 
-      action: 'aplus.setMetaInfo', 
-      arguments: ['appKey', 'h0toavlx6pr2fm8afbafq1ud']  
-    });
-    aplus_queue.push({ 
-      action: 'aplus.setMetaInfo', 
-      arguments: ['aplus-rhost-v', 'qtedu.om.moe.edu.cn']  
-    });</script><script>/**
-     * 发送页面性能监听请求
-     * type: 1:接口响应时间；2：index.html访问到的时间点；3：页面js加载完成，开始调用接口时间点
-     */
-    function postTimeLine(type, params){
-      //是否已经开始当前客户端调试
-      if(!localStorage.getItem('openPostTimeLine')) return false;
+        function handleFontSize() {
+          WeixinJSBridge.invoke("setFontSizeCallback", { fontSize: 0 });
+          WeixinJSBridge.on("menu:setfont", function () {
+            WeixinJSBridge.invoke("setFontSizeCallback", { fontSize: 0 });
+          });
+        }
+      })();
+      // 教育部埋点
+      (function (w, d, s, q) {
+        w[q] = w[q] || [];
+        var f = d.getElementsByTagName(s)[0],
+          j = d.createElement(s);
+        j.async = true;
+        j.id = "beacon-aplus";
+        j.src = "https://d.alicdn.com/alilog/mlog/aplus/204458013.js";
+        f.parentNode.insertBefore(j, f);
+      })(window, document, "script", "aplus_queue");
+      aplus_queue.push({
+        action: "aplus.setMetaInfo",
+        arguments: ["appKey", "h0toavlx6pr2fm8afbafq1ud"],
+      });
+      aplus_queue.push({
+        action: "aplus.setMetaInfo",
+        arguments: ["aplus-rhost-v", "qtedu.om.moe.edu.cn"],
+      });
+    </script>
+    <script>
+      /**
+       * 发送页面性能监听请求
+       * type: 1:接口响应时间；2：index.html访问到的时间点；3：页面js加载完成，开始调用接口时间点
+       */
+      function postTimeLine(type, params) {
+        //是否已经开始当前客户端调试
+        if (!localStorage.getItem("openPostTimeLine")) return false;
 
-      var uidKey = 'postTimeLine',
+        var uidKey = "postTimeLine",
           uid = localStorage.getItem(uidKey);
 
-      params = params ? params : {};
-      params.nowTime = (new Date()).getTime();
-      params.api = params.api ? params.api : '';
-      params.useTime = params.useTime ? params.useTime : 0;
+        params = params ? params : {};
+        params.nowTime = new Date().getTime();
+        params.api = params.api ? params.api : "";
+        params.useTime = params.useTime ? params.useTime : 0;
 
-      var data = new FormData();
-        data.append('type', type);
-        data.append('uid', uid);
-        data.append('data', JSON.stringify(params));
+        var data = new FormData();
+        data.append("type", type);
+        data.append("uid", uid);
+        data.append("data", JSON.stringify(params));
 
         var xhr = new XMLHttpRequest();
-        xhr.open('post', location.protocol + "//" + location.hostname + '/api/debug/log');
-        xhr.send(data)
-    }
-    postTimeLine(2);
-
-    function IEVersion() {
-      var userAgent = navigator.userAgent; //取得浏览器的userAgent字符串
-      var isIE = userAgent.indexOf("compatible") > -1 && userAgent.indexOf("MSIE") > -1; //判断是否IE<11浏览器
-      var isEdge = userAgent.indexOf("Edge") > -1 && !isIE; //判断是否IE的Edge浏览器
-      var isIE11 = userAgent.indexOf('Trident') > -1 && userAgent.indexOf("rv:11.0") > -1;
-      if (isIE) {
-        var reIE = new RegExp("MSIE (\\d+\\.\\d+);");
-        reIE.test(userAgent);
-        var fIEVersion = parseFloat(RegExp["$1"]);
-        if (fIEVersion == 7) {
-          return 7;
-        } else if (fIEVersion == 8) {
-          return 8;
-        } else if (fIEVersion == 9) {
-          return 9;
-        } else if (fIEVersion == 10) {
-          return 10;
-        } else {
-          return 6;//IE版本<=7
-        }
-      } else if (isEdge) {
-        return 'edge';//edge
-      } else if (isIE11) {
-        return 11; //IE11
-      } else {
-        return false;//不是ie浏览器
+        xhr.open(
+          "post",
+          location.protocol + "//" + location.hostname + "/api/debug/log"
+        );
+        xhr.send(data);
       }
-    }
+      // postTimeLine(2);
 
-    if (window.location.href.indexOf("opendebug") !== -1) {
-      console.log("调试模式");
-    } else {
-      if (window.location.href.indexOf("icce") !== -1 && IEVersion()) { //IE跳转
-        window.location.href = '/v2/static/html/download.html';
-      } else if (IEVersion()) { // 判断ie版本 低于11的跳转
-        if (IEVersion() != 'edge' && IEVersion() < 11) {
+      function IEVersion() {
+        var userAgent = navigator.userAgent; //取得浏览器的userAgent字符串
+        var isIE =
+          userAgent.indexOf("compatible") > -1 &&
+          userAgent.indexOf("MSIE") > -1; //判断是否IE<11浏览器
+        var isEdge = userAgent.indexOf("Edge") > -1 && !isIE; //判断是否IE的Edge浏览器
+        var isIE11 =
+          userAgent.indexOf("Trident") > -1 &&
+          userAgent.indexOf("rv:11.0") > -1;
+        if (isIE) {
+          var reIE = new RegExp("MSIE (\\d+\\.\\d+);");
+          reIE.test(userAgent);
+          var fIEVersion = parseFloat(RegExp["$1"]);
+          if (fIEVersion == 7) {
+            return 7;
+          } else if (fIEVersion == 8) {
+            return 8;
+          } else if (fIEVersion == 9) {
+            return 9;
+          } else if (fIEVersion == 10) {
+            return 10;
+          } else {
+            return 6; //IE版本<=7
+          }
+        } else if (isEdge) {
+          return "edge"; //edge
+        } else if (isIE11) {
+          return 11; //IE11
+        } else {
+          return false; //不是ie浏览器
+        }
+      }
+
+      if (window.location.href.indexOf("opendebug") !== -1) {
+        console.log("调试模式");
+      } else {
+        if (window.location.href.indexOf("icce") !== -1 && IEVersion()) {
+          //IE跳转
+          window.location.href = "/v2/static/html/download.html";
+        } else if (IEVersion()) {
+          // 判断ie版本 低于11的跳转
+          if (IEVersion() != "edge" && IEVersion() < 11) {
+            setTimeout(function () {
+              window.location.href = "/v2/static/html/download.html";
+            }, 300);
+          }
+        } else {
           setTimeout(function () {
-            window.location.href = '/v2/static/html/download.html';
+            if (!history.pushState) {
+              window.location.href = "/v2/static/html/download.html";
+            }
           }, 300);
         }
-      } else {
-        setTimeout(function () {
-          if (!history.pushState) {
-            window.location.href = '/v2/static/html/download.html';
-          }
-        }, 300);
-      }
 
-      // 兼容微信端ios 微信鉴权 来源页错误问题
-      if (navigator.userAgent.indexOf('iPhone') !== -1) {
-        var ua= window.navigator.userAgent.toLowerCase();
-        if( (ua.match(/MicroMessenger/i) == 'micromessenger') && (ua.match(/wxwork/i) != 'wxwork') ){
-          window.wechaturl = window.location.href.split("#")[0];
-          console.log("微信客户端");
+        // 兼容微信端ios 微信鉴权 来源页错误问题
+        if (navigator.userAgent.indexOf("iPhone") !== -1) {
+          var ua = window.navigator.userAgent.toLowerCase();
+          if (
+            ua.match(/MicroMessenger/i) == "micromessenger" &&
+            ua.match(/wxwork/i) != "wxwork"
+          ) {
+            window.wechaturl = window.location.href.split("#")[0];
+            console.log("微信客户端");
+          }
         }
       }
-    }</script><style>.frame_load_img {
-      display: inline-block;
-      width: 50px;
-    }
-
-    .frame-loader {
-      position: fixed;
-      z-index: 999;
-      top: 50%;
-      left: 50%;
-      transform: translate3d(-50%, -50%, 0);
-    }
-
-    @-webkit-keyframes haha1 {
-      0% {
-        -webkit-transform: rotate(0deg);
+    </script>
+    <style>
+      .frame_load_img {
+        display: inline-block;
+        width: 50px;
       }
 
-      25% {
-        -webkit-transform: rotate(90deg);
+      .frame-loader {
+        position: fixed;
+        z-index: 999;
+        top: 50%;
+        left: 50%;
+        transform: translate3d(-50%, -50%, 0);
       }
 
-      50% {
-        -webkit-transform: rotate(180deg);
+      @-webkit-keyframes haha1 {
+        0% {
+          -webkit-transform: rotate(0deg);
+        }
+
+        25% {
+          -webkit-transform: rotate(90deg);
+        }
+
+        50% {
+          -webkit-transform: rotate(180deg);
+        }
+
+        75% {
+          -webkit-transform: rotate(270deg);
+        }
+
+        100% {
+          -webkit-transform: rotate(360deg);
+        }
       }
 
-      75% {
-        -webkit-transform: rotate(270deg);
+      #__vconsole .vc-content {
+        line-height: 12px;
       }
-
-      100% {
-        -webkit-transform: rotate(360deg);
-      }
-    }
-
-    #__vconsole .vc-content {
-      line-height: 12px;
-    }</style><script src="./static/jweixin-1.3.2.js"></script><script src="./static/jquery@3.6.0.min.js"></script><script src="./static/vue@2.6.10.min.js"></script><script src="./static/element-ui@2.13.0.min.js"></script><link rel="stylesheet" href="./static/element-ui@2.13.0.min.css"><script>//刷新页面
-    function reloadNowPage(nowSourceV) {
-      var search = window.location.search,
-          searchArr = search.indexOf("?") !== -1 ? search.replace('?', '').split("&") : [],
+    </style>
+    <script src="./static/jweixin-1.3.2.js"></script>
+    <script src="./static/jquery@3.6.0.min.js"></script>
+    <script src="./static/vue@2.6.10.min.js"></script>
+    <script src="./static/element-ui@2.13.0.min.js"></script>
+    <link rel="stylesheet" href="./static/element-ui@2.13.0.min.css" />
+    <script>
+      //刷新页面
+      function reloadNowPage(nowSourceV) {
+        var search = window.location.search,
+          searchArr =
+            search.indexOf("?") !== -1
+              ? search.replace("?", "").split("&")
+              : [],
           nowSearchArr = [],
           nowSearch = [];
 
-      for(var index in searchArr) {
-        if(searchArr[index].indexOf("appSourceV") !== 0) {
-          nowSearchArr.push(searchArr[index]);
+        for (var index in searchArr) {
+          if (searchArr[index].indexOf("appSourceV") !== 0) {
+            nowSearchArr.push(searchArr[index]);
+          }
         }
+
+        nowSearchArr.push("appSourceV=" + nowSourceV);
+        nowSearch = "?" + nowSearchArr.join("&");
+
+        window.location.replace(
+          window.location.protocol +
+            "//" +
+            window.location.host +
+            window.location.pathname +
+            nowSearch +
+            window.location.hash
+        );
       }
 
-      nowSearchArr.push("appSourceV="+nowSourceV);
-      nowSearch = "?"+nowSearchArr.join("&");
+      //获取指定参数值
+      function getQuery(name) {
+        var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)", "i");
+        var r = window.location.search.substr(1).match(reg);
 
-      window.location.replace(
-        window.location.protocol+"//"
-        +window.location.host
-        +window.location.pathname
-        +nowSearch
-        +window.location.hash
-      );
-    }
+        if (r != null) return unescape(r[2]);
+        return null;
+      }
 
-    //获取指定参数值
-    function getQuery (name) {
-      var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)", "i");
-      var r = window.location.search.substr(1).match(reg);
-
-      if (r != null) return unescape(r[2]); return null;
-    }
-
-    var nowSourceV = 1670041171566,
+      var nowSourceV = 1670041171566,
         paramsSourceV = getQuery("appSourceV");
 
-    paramsSourceV = paramsSourceV ? paramsSourceV : 0;
-    if('production' == 'production') {
-      $.ajax({
-      url: "/v2/static/version.js?v="+(new Date()).getTime(),
-      method: 'GET',
-      dataType: 'json',
-      async: false,
-      success: function(res) {
-        if(paramsSourceV !== res.version) {
-          if(res.version != nowSourceV) {
-            reloadNowPage(res.version);
-          }
-        } else {
-          console.log("获取到的版本文件为最新文件，和最新版本不对应");
-        }
-      },
-      error: function(error) {
-        console.log(error);
+      paramsSourceV = paramsSourceV ? paramsSourceV : 0;
+    </script>
+    <meta name="sourceV" content="1670041171566" />
+    <meta name="envWebId" content="scu" />
+    <link
+      href="./static/chunk-vendors.09afc2deedfffda8f74a.css"
+      rel="stylesheet"
+    />
+    <link
+      href="./static/chunk-common.72566b7213d42f45e36f.css"
+      rel="stylesheet"
+    />
+    <style class="redeviation-bs-style" data-name="content">
+      /*! (c) Philipp König under GPL-3.0 */
+      body > div#redeviation-bs-indicator > div {
+        opacity: 0;
+        pointer-events: none;
       }
-    })
-    }</script><meta name="sourceV" content="1670041171566"><meta name="envWebId" content="scu"><link href="./static/chunk-vendors.09afc2deedfffda8f74a.css" rel="stylesheet"><link href="./static/chunk-common.72566b7213d42f45e36f.css" rel="stylesheet"><style class="redeviation-bs-style" data-name="content">/*! (c) Philipp König under GPL-3.0 */
-body>div#redeviation-bs-indicator>div{opacity:0;pointer-events:none}body>#redeviation-bs-sidebar.redeviation-bs-visible,body>#redeviation-bs-overlay.redeviation-bs-visible{opacity:1;pointer-events:auto}body.redeviation-bs-noscroll{overflow:hidden !important}body>div#redeviation-bs-indicator>div{position:absolute;transform:translate3d(-40px, 0, 0);top:0;left:0;width:40px !important;height:100%;background:rgba(0,0,0,0.5);border-radius:0 10px 10px 0;transition:opacity 0.3s, transform 0.3s;z-index:2}body>div#redeviation-bs-indicator>div>span{-webkit-mask:no-repeat center/32px;-webkit-mask-image:url(chrome-extension://jdbnofccmhefkmjbkkdkfiicjkgofkdh/img/icon-bookmark.svg);background-color:#ffffff;position:absolute;display:block;top:0;left:0;width:100%;height:100%}body>div#redeviation-bs-indicator[data-pos='right']{left:auto;right:0}body>div#redeviation-bs-indicator[data-pos='right']>div{transform:translate3d(40px, 0, 0);left:auto;right:0;border-radius:10px 0 0 10px}body>div#redeviation-bs-indicator.redeviation-bs-fullHeight>div{border-radius:0}body>div#redeviation-bs-indicator.redeviation-bs-hover>div{transform:translate3d(0, 0, 0);opacity:1}body>div#redeviation-bs-indicator[data-pos='left'].redeviation-bs-has-lsb{height:100% !important;top:0 !important}body>div#redeviation-bs-indicator[data-pos='left'].redeviation-bs-has-lsb>div{background:transparent}body>div#redeviation-bs-indicator[data-pos='left'].redeviation-bs-has-lsb>div>span{-webkit-mask-position-y:20px}body>#redeviation-bs-sidebar{width:350px;max-width:none;height:0;z-index:2147483646;background-color:rgba(255,255,255,0.8) !important;color-scheme:normal !important;speak:none;border:none;display:block !important;transform:translate3d(-350px, 0, 0);transition:width 0s 0.3s, height 0s 0.3s, opacity 0.3s, transform 0.3s}body>#redeviation-bs-sidebar[data-pos='right']{left:auto;right:0;transform:translate3d(350px, 0, 0)}body>#redeviation-bs-sidebar.redeviation-bs-visible{width:calc(100% + 350px);height:100%;transform:translate3d(0, 0, 0);transition:opacity 0.3s, transform 0.3s}body>#redeviation-bs-sidebar.redeviation-bs-hideMask{background:none !important}body>#redeviation-bs-sidebar.redeviation-bs-hideMask:not(.redeviation-bs-hover){width:calc(350px + 50px)}body>#redeviation-bs-overlay{width:100%;max-width:none;height:100%;z-index:2147483647;border:none;speak:none;background:rgba(0,0,0,0.5) !important;transition:opacity 0.3s}
-</style><link rel="shortcut icon" href="https://imgservice.scu.edu.cn/all/175/351777.png"><link rel="stylesheet" type="text/css" href="./static/chunk-4df1c500.f0255f3d64d0f847255c.css"><script charset="utf-8" src="./static/chunk-4df1c500.3719baf229f5b0dd0056.js"></script><link rel="stylesheet" type="text/css" href="./static/chunk-435cc760.6ffc1c613d0914ffabd9.css"><script charset="utf-8" src="./static/chunk-435cc760.50bea0f128399353a5c5.js"></script><script charset="utf-8" src="./static/chunk-131c13e9.ec9fd174b828dc78d4e4.js"></script><link rel="stylesheet" type="text/css" href="./static/chunk-0012badf.13018376ecf9f7d10d60.css"><script charset="utf-8" src="./static/chunk-0012badf.94c96f839459394c34f0.js"></script><link rel="stylesheet" type="text/css" href="./static/chunk-00c8e469.8484b1e28a572123f18c.css"><script charset="utf-8" src="./static/chunk-00c8e469.95ecd365d87078160841.js"></script><script async="" src="./static/rcfg.js" id="aplus-setting" type="text/javascript" charset="utf-8"></script></head><body class="site_mobile_common"><div id="wxform"><div id="showExamine"><div class="top" style=""><div class="W_onetop active">
-						申请表单
-						<p style="display: none;">1</p></div> <!----> <!----><!----> <a href="javascript:;" class="showBpmn">办事流程</a> <!----><!----> <!----> <a href="javascript:;" class="history">处理记录</a> <span class="line" style="width: 16%; left: 35.5557px;"></span></div> <div class="forms"><div style="height: 0px;"></div> <!----> <div class="toptabla"><div class="toptabla_con"><div class="formsTop_left"><i class="iconfont icon-biaodanyemian"></i> <p class="">通勤报备</p></div> <!----></div></div> <div><div element-loading-custom-class="area-vloading" class="m_formList"><div class=""><div class="pluginnames"><span style="color: rgb(135, 135, 135); font-size: 14px; font-family: 微软雅黑; line-height: 20px;">已通勤报备闪图</span> <!----></div> <!----> <div class="plugin-allbox"><div data-key="Image_30" class="dplugin-box" style="margin-top: 0px; margin-bottom: 0px; text-align: left;"><div class="dplugin-mobile dplugin-mobile-dImage dImageview"><img src="./static/1167183_g9cp5e176v12.gif" style="width: 100%; height: 100%;"></div> <!----> <!----></div> <!----></div></div><div class=""><div class="pluginnames"><span style="color: rgb(135, 135, 135); font-size: 14px; font-family: 微软雅黑; line-height: 22px;">开始日期</span> <!----></div> <!----> <div class="plugin-allbox"><div data-key="Calendar_27" class="dplugin-box" style="margin-top: 0px; margin-bottom: 0px; text-align: left;"><div class="dplugin-mobile dplugin-mobile-dCalendar dCalendar-vie" style="font-size: 14px; font-family: 微软雅黑; font-weight: bold; font-style: normal; color: rgb(255, 0, 0); text-decoration: none; text-align: left; line-height: 20px; letter-spacing: 0px;"><span style="font-size: 14px; font-family: 微软雅黑; font-weight: bold; font-style: normal; color: rgb(255, 0, 0); text-decoration: none; text-align: left; line-height: 20px; letter-spacing: 0px;">2022 年 11 月 30 日</span></div></div> <!----></div></div><div class=""><div class="pluginnames"><span style="color: rgb(135, 135, 135); font-size: 14px; font-family: 微软雅黑; line-height: 22px;">截止日期</span> <!----></div> <!----> <div class="plugin-allbox"><div data-key="Calendar_15" class="dplugin-box" style="margin-top: 0px; margin-bottom: 0px; text-align: left;"><div class="dplugin-mobile dplugin-mobile-dCalendar dCalendar-vie" style="font-size: 14px; font-family: 微软雅黑; font-weight: bold; font-style: normal; color: rgb(255, 0, 0); text-decoration: none; text-align: left; line-height: 20px; letter-spacing: 0px;"><span style="font-size: 14px; font-family: 微软雅黑; font-weight: bold; font-style: normal; color: rgb(255, 0, 0); text-decoration: none; text-align: left; line-height: 20px; letter-spacing: 0px;">2022 年 12 月 31 日</span></div></div> <!----></div></div><div class=""><div class="pluginnames"><span style="color: rgb(135, 135, 135); font-size: 14px; font-family: 微软雅黑; line-height: 22px;">姓名</span> <!----></div> <!----> <div class="plugin-allbox"><div data-key="User_10" class="dplugin-box" style="margin-top: 0px; margin-bottom: 0px; text-align: left;"><div class="dplugin-mobile dplugin-doneplugin dplugin-mobile-dinput"><span class="doneplugin-value doneplugin-value-userview" style="font-size: 14px; font-family: 微软雅黑; font-weight: normal; font-style: normal; color: rgb(96, 98, 102); text-decoration: none; text-align: left; line-height: 20px; letter-spacing: 0px;">
-						张三
-					</span></div></div> <!----></div></div><div class=""><div class="pluginnames"><span style="color: rgb(135, 135, 135); font-size: 14px; font-family: 微软雅黑; line-height: 22px;">学号</span> <!----></div> <!----> <div class="plugin-allbox"><div data-key="User_11" class="dplugin-box" style="margin-top: 0px; margin-bottom: 0px; text-align: left;"><div class="dplugin-mobile dplugin-doneplugin dplugin-mobile-dinput"><span class="doneplugin-value doneplugin-value-userview" style="font-size: 14px; font-family: 微软雅黑; font-weight: normal; font-style: normal; color: rgb(96, 98, 102); text-decoration: none; text-align: left; line-height: 20px; letter-spacing: 0px;">
-						2021123456789
-					</span></div></div> <!----></div></div><div class=""><div class="pluginnames"><span style="color: rgb(135, 135, 135); font-size: 14px; font-family: 微软雅黑; line-height: 22px;">学院/部门</span> <!----></div> <!----> <div class="plugin-allbox"><div data-key="User_13" class="dplugin-box" style="margin-top: 0px; margin-bottom: 0px; text-align: left;"><div class="dplugin-mobile dplugin-doneplugin dplugin-mobile-dinput"><span class="doneplugin-value doneplugin-value-userview" style="font-size: 14px; font-family: 微软雅黑; font-weight: normal; font-style: normal; color: rgb(96, 98, 102); text-decoration: none; text-align: left; line-height: 20px; letter-spacing: 0px;">
-						计算机学院（软件学院）
-					</span></div></div> <!----></div></div><div class=""><div class="pluginnames"><span style="color: rgb(135, 135, 135); font-size: 14px; font-family: 微软雅黑; line-height: 22px;">手机号</span> <!----></div> <!----> <div class="plugin-allbox"><div data-key="User_12" class="dplugin-box" style="margin-top: 0px; margin-bottom: 0px; text-align: left;"><div class="dplugin-mobile dplugin-doneplugin dplugin-mobile-dinput"><span class="doneplugin-value doneplugin-value-userview" style="font-size: 14px; font-family: 微软雅黑; font-weight: normal; font-style: normal; color: rgb(96, 98, 102); text-decoration: none; text-align: left; line-height: 20px; letter-spacing: 0px;">
-						12345678901
-					</span></div></div> <!----></div></div><div class=""><div class="pluginnames"><span style="color: rgb(135, 135, 135); font-size: 14px; font-family: 微软雅黑; line-height: 22px;">事由</span> <!----></div> <!----> <div class="plugin-allbox"><div data-key="Radio_14" class="dplugin-box" style="margin-top: 0px; margin-bottom: 0px; text-align: left;"><div id="dradioviewRadio_14" class="dplugin-mobile dplugin-mobile-dRadio dplugin-radio" style="white-space: inherit;"><label for="1420_Radio_14_0" class="dradiostyle" style="font-size: 14px; font-family: 微软雅黑; font-weight: normal; font-style: normal; color: rgb(96, 98, 102); text-decoration: none; text-align: left; line-height: 20px; letter-spacing: 0px; display: inline; margin-right: 10px;"><i class="icon iconfont iconfontcolor icondanxuanxuanzhong-copy"></i> <input type="radio" id="1420_Radio_14_0" name="Radio_141420" disabled="disabled" class="dplugin-mobile-newRadio dplugin_readonly_input" value="1"> <span style="font-size: 14px; font-family: 微软雅黑; font-weight: normal; font-style: normal; color: rgb(96, 98, 102); text-decoration: none; text-align: left; line-height: 20px; letter-spacing: 0px;">校外居住</span></label><label for="1420_Radio_14_1" class="dradiostyle" style="font-size: 14px; font-family: 微软雅黑; font-weight: normal; font-style: normal; color: rgb(96, 98, 102); text-decoration: none; text-align: left; line-height: 20px; letter-spacing: 0px; display: inline; margin-right: 10px;"><i class="icon iconfont iconfontcolor icondanxuanxuanzhong-copy"></i> <input type="radio" id="1420_Radio_14_1" name="Radio_141420" disabled="disabled" class="dplugin-mobile-newRadio dplugin_readonly_input" value="2"> <span style="font-size: 14px; font-family: 微软雅黑; font-weight: normal; font-style: normal; color: rgb(96, 98, 102); text-decoration: none; text-align: left; line-height: 20px; letter-spacing: 0px;">外出实习</span></label><label for="1420_Radio_14_2" class="dradiostyle" style="font-size: 14px; font-family: 微软雅黑; font-weight: normal; font-style: normal; color: rgb(96, 98, 102); text-decoration: none; text-align: left; line-height: 20px; letter-spacing: 0px; display: inline; margin-right: 0px;"><i class="icon iconfont iconfontcolor icondanxuanxuanzhongcopy-"></i> <input type="radio" id="1420_Radio_14_2" name="Radio_141420" disabled="disabled" class="dplugin-mobile-newRadio dplugin_readonly_input" value="3"> <span style="font-size: 14px; font-family: 微软雅黑; font-weight: normal; font-style: normal; color: rgb(96, 98, 102); text-decoration: none; text-align: left; line-height: 20px; letter-spacing: 0px;">跨校区实验</span></label> <!----></div></div> <!----></div></div><div class=""><div class="pluginnames"><span style="color: rgb(135, 135, 135); font-size: 14px; font-family: 微软雅黑; line-height: 22px;">审批辅导员</span> <!----></div> <!----> <div class="plugin-allbox"><div data-key="UserSearch_17" class="dplugin-box" style="margin-top: 0px; margin-bottom: 0px; text-align: left;"><div class="dplugin-mobile dplugin-mobile-dinput"><span class="doneplugin-value doneplugin-value-userview" style="font-size: 14px; font-family: 微软雅黑; font-weight: normal; font-style: normal; color: rgb(96, 98, 102); text-decoration: none; text-align: left; line-height: 20px; letter-spacing: 0px;">
-  					李四
-  				</span></div></div> <!----></div></div><div class=""><div class="pluginnames"><span style="color: rgb(135, 135, 135); font-size: 14px; font-family: 微软雅黑; line-height: 22px;">上传证明</span> <!----></div> <!----> <div data-v-c498f610="" class="plugin-allbox"><div data-v-c498f610="" data-key="File_25" class="dplugin-box" style="margin-top: 0px; margin-bottom: 0px; text-align: left;"><div data-v-c498f610="" class="dplugin-mobile dplugin-mobile-dFile" style="font-size: 14px; font-family: 微软雅黑; font-weight: normal; font-style: normal; color: rgb(96, 98, 102); text-decoration: none; text-align: left; line-height: 20px; letter-spacing: 0px;"><div data-v-c498f610="" class="dFile-Vie"><div data-v-c498f610="" style="display: none;"><input data-v-c498f610="" id="File_25" multiple="multiple" type="file" disabled="disabled" accept=""></div> <ul data-v-c498f610="" class="progressView"></ul> <ul data-v-c498f610="" id="file_File_25_images"><li data-v-c498f610="" class="filenames ofl"><i data-v-c498f610="" class="el-icon-document"></i> <span data-v-c498f610="" class="dplugin-mobile-dFile_span">
-                -5352c26c44d7712.jpg
-              </span> <div data-v-c498f610="" class="dplugin-mobile-dFile_btn"><span data-v-c498f610="" class="preview">下载</span> <span data-v-c498f610="" class="preview">预览</span> <!----> <img data-v-c498f610="" src="./static/auth-download" data-original="https://service.scu.edu.cn/site/attach/auth-download?file_id=1408301&amp;inst_id=109705057&amp;sess_id=0" style="display: none;"> <!----></div></li></ul> <!----></div></div></div> <!----></div></div><div class=""><div class="pluginnames"><span style="color: rgb(135, 135, 135); font-size: 14px; font-family: 微软雅黑; line-height: 22px;">辅导员审批意见</span> <!----></div> <!----> <div class="plugin-allbox"><div data-key="MultiInput_22" class="dplugin-box" style="margin-top: 0px; margin-bottom: 0px; text-align: left;"><div class="dplugin-mobile dplugin-mobile-dmultiInputs"><div class="dplugin-content-wrap" style="font-size: 14px; font-family: 微软雅黑; font-weight: normal; font-style: normal; color: rgb(96, 98, 102); text-decoration: none; text-align: left; line-height: 20px; letter-spacing: 0px; min-height: 46px;">同意</div></div></div> <!----></div></div><div class=""><div class="pluginnames"><span style="color: rgb(135, 135, 135); font-size: 14px; font-family: 微软雅黑; line-height: 22px;">审批人签字</span> <!----></div> <!----> <div class="plugin-allbox"><div data-key="User_20" class="dplugin-box" style="margin-top: 0px; margin-bottom: 0px; text-align: left;"><div class="dplugin-mobile dplugin-doneplugin dplugin-mobile-dinput"><span class="doneplugin-value doneplugin-value-userview" style="font-size: 14px; font-family: 微软雅黑; font-weight: normal; font-style: normal; color: rgb(96, 98, 102); text-decoration: none; text-align: left; line-height: 20px; letter-spacing: 0px;">
-						李四
-					</span></div></div> <!----></div></div><div class=""><div class="pluginnames"><span style="color: rgb(135, 135, 135); font-size: 14px; font-family: 微软雅黑; line-height: 22px;">审批人签字日期</span> <!----></div> <!----> <div class="plugin-allbox"><div data-key="Calendar_21" class="dplugin-box" style="margin-top: 0px; margin-bottom: 0px; text-align: left;"><div class="dplugin-mobile dplugin-mobile-dCalendar dCalendar-vie" style="font-size: 14px; font-family: 微软雅黑; font-weight: normal; font-style: normal; color: rgb(96, 98, 102); text-decoration: none; text-align: left; line-height: 20px; letter-spacing: 0px;"><span style="font-size: 14px; font-family: 微软雅黑; font-weight: normal; font-style: normal; color: rgb(96, 98, 102); text-decoration: none; text-align: left; line-height: 20px; letter-spacing: 0px;">2022 年 11 月 29 日</span></div></div> <!----></div></div><div class=""><div class="pluginnames"><span style="color: rgb(135, 135, 135); font-size: 14px; font-family: 微软雅黑; line-height: 22px;">温馨提示：</span> <!----></div> <!----> <div data-key="MultiText_23" class="dplugin-box" style="margin-top: 0px; margin-bottom: 0px; text-align: left;"><div class="dplugin-mobile dplugin-mobile-doneinput dplugin-doneplugin"><div class="dplugin-multiText whitespace" style="font-size: 14px; font-family: 微软雅黑; font-weight: normal; font-style: normal; color: rgb(96, 98, 102); text-decoration: none; text-align: left; line-height: 20px; letter-spacing: 0px;">1、请充分了解学校疫情防控政策和要求，提前准备好防护用品，注意防护。<br>2、每日进行健康监测，感觉发热时要主动测量体温，如实填报四川大学微服务“健康每日报”。<br>3、乘坐公共交通工具时，全程佩戴口罩，减少接触交通工具的公共物品和部位。随时保持手卫生（接触公共物品、咳嗽手捂之后，饭前便后，用洗手液或香皂等流水清洗；不确定手是否清洁时，避免用手接触口鼻眼；打喷嚏或咳嗽时，用手肘衣服遮住口鼻）。<br>4、请保持手机畅通，遇到问题请及时与辅导员联系。</div></div></div></div><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----> <div style="display: none;"><ul><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><li><span>提示：</span> <div data-key="Alert_28" class="dplugin-box" plugin="[object Object]" style="margin-top: 0px; margin-bottom: 0px; text-align: left;"><!----> <div class="el-dialog__wrapper" style="display: none;"><div role="dialog" aria-modal="true" aria-label="通勤报备" class="el-dialog sele_leave" style="margin-top: 15vh; width: 310px;"><div class="el-dialog__header"><span class="el-dialog__title">通勤报备</span><!----></div><!----><!----></div></div></div></li><li><span>逻辑显隐：</span> <div data-key="ShowHide_31" class="dplugin-box" plugin="[object Object]" style="margin-top: 0px; margin-bottom: 0px; text-align: left;"><!----></div></li></ul></div><div class="el-loading-mask area-vloading" style="display: none;"><div class="el-loading-spinner"><svg viewBox="25 25 50 50" class="circular"><circle cx="50" cy="50" r="20" fill="none" class="path"></circle></svg><!----></div></div></div> <!----></div> <!----> <div class="wxformbtn"><!----> <button class="mReminder">预览表单</button> <!----></div> <!----></div> <div class="processimg" style="display: none;"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACgAAAAkCAYAAAD7PHgWAAAFyklEQVRYR82Ya2wUVRTH/2emS7s7sw3yMiFASDAhsbwSPighNbtTKAEfAQJBgzE+ouIDEoFA3Wl1pZ0tyMOIQgJ+QEJMEFCihIjY3S2ElITYII0gGAEhJkrVQLuv0t29x8x0F0q7ZWcLLd5Pk5n/Oec393HuuZdQQJu7lYtvtkcqSSryMIvpIJoA5mEAhgCIAPgToHMMapKL5CMNa4t/KcB9TinZceCpT4yXWaxm5qUAhtqxsTREzQBvE53KnkY/pWzbdRPeFdDjb1WlYtUPIVYAcHSza2PGSZJwnhmtEtDJIDcI48A8FURTwSzf1vMlSZZWNFQphwuF7BPQY0SnSeADAE3I9EYSTF9CpHcNb1GP7d9P6b6CVQTahwPyIjCWMXjabR193pZ0vdXsp7hd0JyAmhGbC+AAwC5rpEDfyEJ652iN87Jdx1mdVh9fAOYtYB5vvWOcJsLcoK5es+OrF6DX6JhDSH3bNfEpTsRvBn3qbjvO+tJUbmQlnYpvZ8EvZDS/FnVy+dEP3K35/N4B6F0XKSOZmgCUMpCQwE8GdXc4nxO7372BmEHMvsyo/JhOusob/dRxN/tbgFYKicROAZgC0E0AC0K68p3d4HZ1WiBeDxZV1mgT7Qj7lGW2ADUjpgNc15UdaFnQp+ywG7RQnWbE9wDieRAxszQ7rDuDffmwerA8EBnpYOkSwCqAH0K6Wllo0EL0Hj+rkiN+FuBxAM6Fkspk+Enk8mEBakbMD/D7AASneUr4PffZQgL2R6vVxReDxL6uhS0tCesu67lnIzCTFohdBTDGTCdBXZnfn4CF2zBpRqwFwCQCnQjqSnlOQG8gPpNYnLA+Mj0TqlYOFR6sfxZaIPIGmLabkVNCnnA8R54lrxGrIfA6APFrSeWhs37q7F+4wq3MHYchX7O2RaLXQj7ls15DrNVFD4HwFAihkE+tKDzMvVlogWgLGJPB2BWqVl/uDWhEzwOYCNAnIV0xi4IBax4/l5AjvlkCXQrqrs3WAq2L7ATRq9Zq1tUy812FEX2Yga1EdIY0I3rdLKGYsTZcrX44YHQAvLWxeSSxVdEQYUvQp67SAvHVYLERwPWQrg6r3MijUp0xc/d6FMANE9Cccw4Cvx3U3dsGEnDGFnY6E9EgQDOykER0QQg2N4W0cGCMlKIGMJeBzGqJXyLNiEQAUhlYGdbVjwYS0PQ9cwO7i1PR77OQAH42U01XXPoN4EdMOIL0StDn3E1eI3qVgLHEHAhWu/WBBuwD8nbYbnAWsjcQDRPDA9CBkK4sHgzAPiF7wFmAFYHox8wwV+8fIV0dO1iAvSBzwGV6ML6QWHzVNWm5LOhznxtMSI+/fYTkkGvBdDRU7TrYKw8+5v+31OUo/osAJ8BGSHdXDyZgvlhWNVMRiO5lxhIwWhMuZfzJlZTIZzhY3y1AT13b4xLJJ81nhrQmrLvMxPm/aLdK/gojdoTBc8wbAkmWJzVUOc0S7IG3W4DeDR0TKZUy6zPzNNfUNsLlaX6dkg+a8I5TXYURX8UQmzJZ/WDbFdeS5p33F3L2htjoVGfaHa4pvWDn53uci80qN74P4EUZyK/brrievV+Qs+o7ZgmRMlOaQuSYEvQV501pvQ7uXcfPxGFAZGpDapLkm881VA27hznJVBFILOeuqsWcQh0Q8qRQTcnFfL2Y8+rD479cIjlGfQHwwoyDCEOqbU86txVyr2Laeutj00mwCebN+LrBxPPDPvexfHDW5tG3yDrUrGGglrI3W4xWkLRLQOxt1JUzAHEue7NiKRGJeYL5RTDPoWwcwulUmpcer3HbvjfMez9oXYcUyVvBQusB8zcDLQS6TMTtzOQAeCSIJoJ5MoCibvp2Bm1qH+FaX2hmyAuYDaKtTzyBtFgO4GmAi+0MD4DfAdotkulPG/2l/9i0uUNmGzBr5fFfH0pDijUJmAkWZUwYDUYpwEkC3RCMiyThJ4YUDr/rPGVWIP0By9r8B5TCYD7Tv+ZxAAAAAElFTkSuQmCC" alt="" class="imgbtn"> <div class="svg"><!--?xml version="1.0" encoding="utf-8"?-->
-<!-- created with bpmn-js / http://bpmn.io -->
+      body > #redeviation-bs-sidebar.redeviation-bs-visible,
+      body > #redeviation-bs-overlay.redeviation-bs-visible {
+        opacity: 1;
+        pointer-events: auto;
+      }
+      body.redeviation-bs-noscroll {
+        overflow: hidden !important;
+      }
+      body > div#redeviation-bs-indicator > div {
+        position: absolute;
+        transform: translate3d(-40px, 0, 0);
+        top: 0;
+        left: 0;
+        width: 40px !important;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.5);
+        border-radius: 0 10px 10px 0;
+        transition: opacity 0.3s, transform 0.3s;
+        z-index: 2;
+      }
+      body > div#redeviation-bs-indicator > div > span {
+        -webkit-mask: no-repeat center/32px;
+        -webkit-mask-image: url(chrome-extension://jdbnofccmhefkmjbkkdkfiicjkgofkdh/img/icon-bookmark.svg);
+        background-color: #ffffff;
+        position: absolute;
+        display: block;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+      }
+      body > div#redeviation-bs-indicator[data-pos="right"] {
+        left: auto;
+        right: 0;
+      }
+      body > div#redeviation-bs-indicator[data-pos="right"] > div {
+        transform: translate3d(40px, 0, 0);
+        left: auto;
+        right: 0;
+        border-radius: 10px 0 0 10px;
+      }
+      body > div#redeviation-bs-indicator.redeviation-bs-fullHeight > div {
+        border-radius: 0;
+      }
+      body > div#redeviation-bs-indicator.redeviation-bs-hover > div {
+        transform: translate3d(0, 0, 0);
+        opacity: 1;
+      }
+      body
+        > div#redeviation-bs-indicator[data-pos="left"].redeviation-bs-has-lsb {
+        height: 100% !important;
+        top: 0 !important;
+      }
+      body
+        > div#redeviation-bs-indicator[data-pos="left"].redeviation-bs-has-lsb
+        > div {
+        background: transparent;
+      }
+      body
+        > div#redeviation-bs-indicator[data-pos="left"].redeviation-bs-has-lsb
+        > div
+        > span {
+        -webkit-mask-position-y: 20px;
+      }
+      body > #redeviation-bs-sidebar {
+        width: 350px;
+        max-width: none;
+        height: 0;
+        z-index: 2147483646;
+        background-color: rgba(255, 255, 255, 0.8) !important;
+        color-scheme: normal !important;
+        speak: none;
+        border: none;
+        display: block !important;
+        transform: translate3d(-350px, 0, 0);
+        transition: width 0s 0.3s, height 0s 0.3s, opacity 0.3s, transform 0.3s;
+      }
+      body > #redeviation-bs-sidebar[data-pos="right"] {
+        left: auto;
+        right: 0;
+        transform: translate3d(350px, 0, 0);
+      }
+      body > #redeviation-bs-sidebar.redeviation-bs-visible {
+        width: calc(100% + 350px);
+        height: 100%;
+        transform: translate3d(0, 0, 0);
+        transition: opacity 0.3s, transform 0.3s;
+      }
+      body > #redeviation-bs-sidebar.redeviation-bs-hideMask {
+        background: none !important;
+      }
+      body
+        > #redeviation-bs-sidebar.redeviation-bs-hideMask:not(
+          .redeviation-bs-hover
+        ) {
+        width: calc(350px + 50px);
+      }
+      body > #redeviation-bs-overlay {
+        width: 100%;
+        max-width: none;
+        height: 100%;
+        z-index: 2147483647;
+        border: none;
+        speak: none;
+        background: rgba(0, 0, 0, 0.5) !important;
+        transition: opacity 0.3s;
+      }
+    </style>
+    <link
+      rel="shortcut icon"
+      href="https://imgservice.scu.edu.cn/all/175/351777.png"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="./static/chunk-4df1c500.f0255f3d64d0f847255c.css"
+    />
+    <script
+      charset="utf-8"
+      src="./static/chunk-4df1c500.3719baf229f5b0dd0056.js"
+    ></script>
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="./static/chunk-435cc760.6ffc1c613d0914ffabd9.css"
+    />
+    <script
+      charset="utf-8"
+      src="./static/chunk-435cc760.50bea0f128399353a5c5.js"
+    ></script>
+    <script
+      charset="utf-8"
+      src="./static/chunk-131c13e9.ec9fd174b828dc78d4e4.js"
+    ></script>
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="./static/chunk-0012badf.13018376ecf9f7d10d60.css"
+    />
+    <script
+      charset="utf-8"
+      src="./static/chunk-0012badf.94c96f839459394c34f0.js"
+    ></script>
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="./static/chunk-00c8e469.8484b1e28a572123f18c.css"
+    />
+    <script
+      charset="utf-8"
+      src="./static/chunk-00c8e469.95ecd365d87078160841.js"
+    ></script>
+    <script
+      async=""
+      src="./static/rcfg.js"
+      id="aplus-setting"
+      type="text/javascript"
+      charset="utf-8"
+    ></script>
+  </head>
+  <body class="site_mobile_common">
+    <div id="wxform">
+      <div id="showExamine">
+        <div class="top" style="">
+          <div class="W_onetop active">
+            申请表单
+            <p style="display: none">1</p>
+          </div>
+          <!---->
+          <!----><!---->
+          <a href="javascript:;" class="showBpmn">办事流程</a>
+          <!----><!---->
+          <!---->
+          <a href="javascript:;" class="history">处理记录</a>
+          <span class="line" style="width: 16%; left: 35.5557px"></span>
+        </div>
+        <div class="forms">
+          <div style="height: 0px"></div>
+          <!---->
+          <div class="toptabla">
+            <div class="toptabla_con">
+              <div class="formsTop_left">
+                <i class="iconfont icon-biaodanyemian"></i>
+                <p class="">通勤报备</p>
+              </div>
+              <!---->
+            </div>
+          </div>
+          <div>
+            <div
+              element-loading-custom-class="area-vloading"
+              class="m_formList"
+            >
+              <div class="">
+                <div class="pluginnames">
+                  <span
+                    style="
+                      color: rgb(135, 135, 135);
+                      font-size: 14px;
+                      font-family: 微软雅黑;
+                      line-height: 20px;
+                    "
+                    >已通勤报备闪图</span
+                  >
+                  <!---->
+                </div>
+                <!---->
+                <div class="plugin-allbox">
+                  <div
+                    data-key="Image_30"
+                    class="dplugin-box"
+                    style="
+                      margin-top: 0px;
+                      margin-bottom: 0px;
+                      text-align: left;
+                    "
+                  >
+                    <div
+                      class="dplugin-mobile dplugin-mobile-dImage dImageview"
+                    >
+                      <img
+                        src="./static/1167183_g9cp5e176v12.gif"
+                        style="width: 100%; height: 100%"
+                      />
+                    </div>
+                    <!---->
+                    <!---->
+                  </div>
+                  <!---->
+                </div>
+              </div>
+              <div class="">
+                <div class="pluginnames">
+                  <span
+                    style="
+                      color: rgb(135, 135, 135);
+                      font-size: 14px;
+                      font-family: 微软雅黑;
+                      line-height: 22px;
+                    "
+                    >开始日期</span
+                  >
+                  <!---->
+                </div>
+                <!---->
+                <div class="plugin-allbox">
+                  <div
+                    data-key="Calendar_27"
+                    class="dplugin-box"
+                    style="
+                      margin-top: 0px;
+                      margin-bottom: 0px;
+                      text-align: left;
+                    "
+                  >
+                    <div
+                      class="dplugin-mobile dplugin-mobile-dCalendar dCalendar-vie"
+                      style="
+                        font-size: 14px;
+                        font-family: 微软雅黑;
+                        font-weight: bold;
+                        font-style: normal;
+                        color: rgb(255, 0, 0);
+                        text-decoration: none;
+                        text-align: left;
+                        line-height: 20px;
+                        letter-spacing: 0px;
+                      "
+                    >
+                      <span
+                        style="
+                          font-size: 14px;
+                          font-family: 微软雅黑;
+                          font-weight: bold;
+                          font-style: normal;
+                          color: rgb(255, 0, 0);
+                          text-decoration: none;
+                          text-align: left;
+                          line-height: 20px;
+                          letter-spacing: 0px;
+                        "
+                        >2022 年 11 月 30 日</span
+                      >
+                    </div>
+                  </div>
+                  <!---->
+                </div>
+              </div>
+              <div class="">
+                <div class="pluginnames">
+                  <span
+                    style="
+                      color: rgb(135, 135, 135);
+                      font-size: 14px;
+                      font-family: 微软雅黑;
+                      line-height: 22px;
+                    "
+                    >截止日期</span
+                  >
+                  <!---->
+                </div>
+                <!---->
+                <div class="plugin-allbox">
+                  <div
+                    data-key="Calendar_15"
+                    class="dplugin-box"
+                    style="
+                      margin-top: 0px;
+                      margin-bottom: 0px;
+                      text-align: left;
+                    "
+                  >
+                    <div
+                      class="dplugin-mobile dplugin-mobile-dCalendar dCalendar-vie"
+                      style="
+                        font-size: 14px;
+                        font-family: 微软雅黑;
+                        font-weight: bold;
+                        font-style: normal;
+                        color: rgb(255, 0, 0);
+                        text-decoration: none;
+                        text-align: left;
+                        line-height: 20px;
+                        letter-spacing: 0px;
+                      "
+                    >
+                      <span
+                        style="
+                          font-size: 14px;
+                          font-family: 微软雅黑;
+                          font-weight: bold;
+                          font-style: normal;
+                          color: rgb(255, 0, 0);
+                          text-decoration: none;
+                          text-align: left;
+                          line-height: 20px;
+                          letter-spacing: 0px;
+                        "
+                        >2022 年 12 月 31 日</span
+                      >
+                    </div>
+                  </div>
+                  <!---->
+                </div>
+              </div>
+              <div class="">
+                <div class="pluginnames">
+                  <span
+                    style="
+                      color: rgb(135, 135, 135);
+                      font-size: 14px;
+                      font-family: 微软雅黑;
+                      line-height: 22px;
+                    "
+                    >姓名</span
+                  >
+                  <!---->
+                </div>
+                <!---->
+                <div class="plugin-allbox">
+                  <div
+                    data-key="User_10"
+                    class="dplugin-box"
+                    style="
+                      margin-top: 0px;
+                      margin-bottom: 0px;
+                      text-align: left;
+                    "
+                  >
+                    <div
+                      class="dplugin-mobile dplugin-doneplugin dplugin-mobile-dinput"
+                    >
+                      <span
+                        class="doneplugin-value doneplugin-value-userview"
+                        style="
+                          font-size: 14px;
+                          font-family: 微软雅黑;
+                          font-weight: normal;
+                          font-style: normal;
+                          color: rgb(96, 98, 102);
+                          text-decoration: none;
+                          text-align: left;
+                          line-height: 20px;
+                          letter-spacing: 0px;
+                        "
+                      >
+                        张三
+                      </span>
+                    </div>
+                  </div>
+                  <!---->
+                </div>
+              </div>
+              <div class="">
+                <div class="pluginnames">
+                  <span
+                    style="
+                      color: rgb(135, 135, 135);
+                      font-size: 14px;
+                      font-family: 微软雅黑;
+                      line-height: 22px;
+                    "
+                    >学号</span
+                  >
+                  <!---->
+                </div>
+                <!---->
+                <div class="plugin-allbox">
+                  <div
+                    data-key="User_11"
+                    class="dplugin-box"
+                    style="
+                      margin-top: 0px;
+                      margin-bottom: 0px;
+                      text-align: left;
+                    "
+                  >
+                    <div
+                      class="dplugin-mobile dplugin-doneplugin dplugin-mobile-dinput"
+                    >
+                      <span
+                        class="doneplugin-value doneplugin-value-userview"
+                        style="
+                          font-size: 14px;
+                          font-family: 微软雅黑;
+                          font-weight: normal;
+                          font-style: normal;
+                          color: rgb(96, 98, 102);
+                          text-decoration: none;
+                          text-align: left;
+                          line-height: 20px;
+                          letter-spacing: 0px;
+                        "
+                      >
+                        2021123456789
+                      </span>
+                    </div>
+                  </div>
+                  <!---->
+                </div>
+              </div>
+              <div class="">
+                <div class="pluginnames">
+                  <span
+                    style="
+                      color: rgb(135, 135, 135);
+                      font-size: 14px;
+                      font-family: 微软雅黑;
+                      line-height: 22px;
+                    "
+                    >学院/部门</span
+                  >
+                  <!---->
+                </div>
+                <!---->
+                <div class="plugin-allbox">
+                  <div
+                    data-key="User_13"
+                    class="dplugin-box"
+                    style="
+                      margin-top: 0px;
+                      margin-bottom: 0px;
+                      text-align: left;
+                    "
+                  >
+                    <div
+                      class="dplugin-mobile dplugin-doneplugin dplugin-mobile-dinput"
+                    >
+                      <span
+                        class="doneplugin-value doneplugin-value-userview"
+                        style="
+                          font-size: 14px;
+                          font-family: 微软雅黑;
+                          font-weight: normal;
+                          font-style: normal;
+                          color: rgb(96, 98, 102);
+                          text-decoration: none;
+                          text-align: left;
+                          line-height: 20px;
+                          letter-spacing: 0px;
+                        "
+                      >
+                        计算机学院（软件学院）
+                      </span>
+                    </div>
+                  </div>
+                  <!---->
+                </div>
+              </div>
+              <div class="">
+                <div class="pluginnames">
+                  <span
+                    style="
+                      color: rgb(135, 135, 135);
+                      font-size: 14px;
+                      font-family: 微软雅黑;
+                      line-height: 22px;
+                    "
+                    >手机号</span
+                  >
+                  <!---->
+                </div>
+                <!---->
+                <div class="plugin-allbox">
+                  <div
+                    data-key="User_12"
+                    class="dplugin-box"
+                    style="
+                      margin-top: 0px;
+                      margin-bottom: 0px;
+                      text-align: left;
+                    "
+                  >
+                    <div
+                      class="dplugin-mobile dplugin-doneplugin dplugin-mobile-dinput"
+                    >
+                      <span
+                        class="doneplugin-value doneplugin-value-userview"
+                        style="
+                          font-size: 14px;
+                          font-family: 微软雅黑;
+                          font-weight: normal;
+                          font-style: normal;
+                          color: rgb(96, 98, 102);
+                          text-decoration: none;
+                          text-align: left;
+                          line-height: 20px;
+                          letter-spacing: 0px;
+                        "
+                      >
+                        12345678901
+                      </span>
+                    </div>
+                  </div>
+                  <!---->
+                </div>
+              </div>
+              <div class="">
+                <div class="pluginnames">
+                  <span
+                    style="
+                      color: rgb(135, 135, 135);
+                      font-size: 14px;
+                      font-family: 微软雅黑;
+                      line-height: 22px;
+                    "
+                    >事由</span
+                  >
+                  <!---->
+                </div>
+                <!---->
+                <div class="plugin-allbox">
+                  <div
+                    data-key="Radio_14"
+                    class="dplugin-box"
+                    style="
+                      margin-top: 0px;
+                      margin-bottom: 0px;
+                      text-align: left;
+                    "
+                  >
+                    <div
+                      id="dradioviewRadio_14"
+                      class="dplugin-mobile dplugin-mobile-dRadio dplugin-radio"
+                      style="white-space: inherit"
+                    >
+                      <label
+                        for="1420_Radio_14_0"
+                        class="dradiostyle"
+                        style="
+                          font-size: 14px;
+                          font-family: 微软雅黑;
+                          font-weight: normal;
+                          font-style: normal;
+                          color: rgb(96, 98, 102);
+                          text-decoration: none;
+                          text-align: left;
+                          line-height: 20px;
+                          letter-spacing: 0px;
+                          display: inline;
+                          margin-right: 10px;
+                        "
+                        ><i
+                          class="icon iconfont iconfontcolor icondanxuanxuanzhong-copy"
+                        ></i>
+                        <input
+                          type="radio"
+                          id="1420_Radio_14_0"
+                          name="Radio_141420"
+                          disabled="disabled"
+                          class="dplugin-mobile-newRadio dplugin_readonly_input"
+                          value="1"
+                        />
+                        <span
+                          style="
+                            font-size: 14px;
+                            font-family: 微软雅黑;
+                            font-weight: normal;
+                            font-style: normal;
+                            color: rgb(96, 98, 102);
+                            text-decoration: none;
+                            text-align: left;
+                            line-height: 20px;
+                            letter-spacing: 0px;
+                          "
+                          >校外居住</span
+                        ></label
+                      ><label
+                        for="1420_Radio_14_1"
+                        class="dradiostyle"
+                        style="
+                          font-size: 14px;
+                          font-family: 微软雅黑;
+                          font-weight: normal;
+                          font-style: normal;
+                          color: rgb(96, 98, 102);
+                          text-decoration: none;
+                          text-align: left;
+                          line-height: 20px;
+                          letter-spacing: 0px;
+                          display: inline;
+                          margin-right: 10px;
+                        "
+                        ><i
+                          class="icon iconfont iconfontcolor icondanxuanxuanzhong-copy"
+                        ></i>
+                        <input
+                          type="radio"
+                          id="1420_Radio_14_1"
+                          name="Radio_141420"
+                          disabled="disabled"
+                          class="dplugin-mobile-newRadio dplugin_readonly_input"
+                          value="2"
+                        />
+                        <span
+                          style="
+                            font-size: 14px;
+                            font-family: 微软雅黑;
+                            font-weight: normal;
+                            font-style: normal;
+                            color: rgb(96, 98, 102);
+                            text-decoration: none;
+                            text-align: left;
+                            line-height: 20px;
+                            letter-spacing: 0px;
+                          "
+                          >外出实习</span
+                        ></label
+                      ><label
+                        for="1420_Radio_14_2"
+                        class="dradiostyle"
+                        style="
+                          font-size: 14px;
+                          font-family: 微软雅黑;
+                          font-weight: normal;
+                          font-style: normal;
+                          color: rgb(96, 98, 102);
+                          text-decoration: none;
+                          text-align: left;
+                          line-height: 20px;
+                          letter-spacing: 0px;
+                          display: inline;
+                          margin-right: 0px;
+                        "
+                        ><i
+                          class="icon iconfont iconfontcolor icondanxuanxuanzhongcopy-"
+                        ></i>
+                        <input
+                          type="radio"
+                          id="1420_Radio_14_2"
+                          name="Radio_141420"
+                          disabled="disabled"
+                          class="dplugin-mobile-newRadio dplugin_readonly_input"
+                          value="3"
+                        />
+                        <span
+                          style="
+                            font-size: 14px;
+                            font-family: 微软雅黑;
+                            font-weight: normal;
+                            font-style: normal;
+                            color: rgb(96, 98, 102);
+                            text-decoration: none;
+                            text-align: left;
+                            line-height: 20px;
+                            letter-spacing: 0px;
+                          "
+                          >跨校区实验</span
+                        ></label
+                      >
+                      <!---->
+                    </div>
+                  </div>
+                  <!---->
+                </div>
+              </div>
+              <div class="">
+                <div class="pluginnames">
+                  <span
+                    style="
+                      color: rgb(135, 135, 135);
+                      font-size: 14px;
+                      font-family: 微软雅黑;
+                      line-height: 22px;
+                    "
+                    >审批辅导员</span
+                  >
+                  <!---->
+                </div>
+                <!---->
+                <div class="plugin-allbox">
+                  <div
+                    data-key="UserSearch_17"
+                    class="dplugin-box"
+                    style="
+                      margin-top: 0px;
+                      margin-bottom: 0px;
+                      text-align: left;
+                    "
+                  >
+                    <div class="dplugin-mobile dplugin-mobile-dinput">
+                      <span
+                        class="doneplugin-value doneplugin-value-userview"
+                        style="
+                          font-size: 14px;
+                          font-family: 微软雅黑;
+                          font-weight: normal;
+                          font-style: normal;
+                          color: rgb(96, 98, 102);
+                          text-decoration: none;
+                          text-align: left;
+                          line-height: 20px;
+                          letter-spacing: 0px;
+                        "
+                      >
+                        李四
+                      </span>
+                    </div>
+                  </div>
+                  <!---->
+                </div>
+              </div>
+              <div class="">
+                <div class="pluginnames">
+                  <span
+                    style="
+                      color: rgb(135, 135, 135);
+                      font-size: 14px;
+                      font-family: 微软雅黑;
+                      line-height: 22px;
+                    "
+                    >上传证明</span
+                  >
+                  <!---->
+                </div>
+                <!---->
+                <div data-v-c498f610="" class="plugin-allbox">
+                  <div
+                    data-v-c498f610=""
+                    data-key="File_25"
+                    class="dplugin-box"
+                    style="
+                      margin-top: 0px;
+                      margin-bottom: 0px;
+                      text-align: left;
+                    "
+                  >
+                    <div
+                      data-v-c498f610=""
+                      class="dplugin-mobile dplugin-mobile-dFile"
+                      style="
+                        font-size: 14px;
+                        font-family: 微软雅黑;
+                        font-weight: normal;
+                        font-style: normal;
+                        color: rgb(96, 98, 102);
+                        text-decoration: none;
+                        text-align: left;
+                        line-height: 20px;
+                        letter-spacing: 0px;
+                      "
+                    >
+                      <div data-v-c498f610="" class="dFile-Vie">
+                        <div data-v-c498f610="" style="display: none">
+                          <input
+                            data-v-c498f610=""
+                            id="File_25"
+                            multiple="multiple"
+                            type="file"
+                            disabled="disabled"
+                            accept=""
+                          />
+                        </div>
+                        <ul data-v-c498f610="" class="progressView"></ul>
+                        <ul data-v-c498f610="" id="file_File_25_images">
+                          <li data-v-c498f610="" class="filenames ofl">
+                            <i data-v-c498f610="" class="el-icon-document"></i>
+                            <span
+                              data-v-c498f610=""
+                              class="dplugin-mobile-dFile_span"
+                            >
+                              -5352c26c44d7712.jpg
+                            </span>
+                            <div
+                              data-v-c498f610=""
+                              class="dplugin-mobile-dFile_btn"
+                            >
+                              <span data-v-c498f610="" class="preview"
+                                >下载</span
+                              >
+                              <span data-v-c498f610="" class="preview"
+                                >预览</span
+                              >
+                              <!---->
+                              <img
+                                data-v-c498f610=""
+                                src="./static/auth-download"
+                                data-original="https://service.scu.edu.cn/site/attach/auth-download?file_id=1408301&amp;inst_id=109705057&amp;sess_id=0"
+                                style="display: none"
+                              />
+                              <!---->
+                            </div>
+                          </li>
+                        </ul>
+                        <!---->
+                      </div>
+                    </div>
+                  </div>
+                  <!---->
+                </div>
+              </div>
+              <div class="">
+                <div class="pluginnames">
+                  <span
+                    style="
+                      color: rgb(135, 135, 135);
+                      font-size: 14px;
+                      font-family: 微软雅黑;
+                      line-height: 22px;
+                    "
+                    >辅导员审批意见</span
+                  >
+                  <!---->
+                </div>
+                <!---->
+                <div class="plugin-allbox">
+                  <div
+                    data-key="MultiInput_22"
+                    class="dplugin-box"
+                    style="
+                      margin-top: 0px;
+                      margin-bottom: 0px;
+                      text-align: left;
+                    "
+                  >
+                    <div class="dplugin-mobile dplugin-mobile-dmultiInputs">
+                      <div
+                        class="dplugin-content-wrap"
+                        style="
+                          font-size: 14px;
+                          font-family: 微软雅黑;
+                          font-weight: normal;
+                          font-style: normal;
+                          color: rgb(96, 98, 102);
+                          text-decoration: none;
+                          text-align: left;
+                          line-height: 20px;
+                          letter-spacing: 0px;
+                          min-height: 46px;
+                        "
+                      >
+                        同意
+                      </div>
+                    </div>
+                  </div>
+                  <!---->
+                </div>
+              </div>
+              <div class="">
+                <div class="pluginnames">
+                  <span
+                    style="
+                      color: rgb(135, 135, 135);
+                      font-size: 14px;
+                      font-family: 微软雅黑;
+                      line-height: 22px;
+                    "
+                    >审批人签字</span
+                  >
+                  <!---->
+                </div>
+                <!---->
+                <div class="plugin-allbox">
+                  <div
+                    data-key="User_20"
+                    class="dplugin-box"
+                    style="
+                      margin-top: 0px;
+                      margin-bottom: 0px;
+                      text-align: left;
+                    "
+                  >
+                    <div
+                      class="dplugin-mobile dplugin-doneplugin dplugin-mobile-dinput"
+                    >
+                      <span
+                        class="doneplugin-value doneplugin-value-userview"
+                        style="
+                          font-size: 14px;
+                          font-family: 微软雅黑;
+                          font-weight: normal;
+                          font-style: normal;
+                          color: rgb(96, 98, 102);
+                          text-decoration: none;
+                          text-align: left;
+                          line-height: 20px;
+                          letter-spacing: 0px;
+                        "
+                      >
+                        李四
+                      </span>
+                    </div>
+                  </div>
+                  <!---->
+                </div>
+              </div>
+              <div class="">
+                <div class="pluginnames">
+                  <span
+                    style="
+                      color: rgb(135, 135, 135);
+                      font-size: 14px;
+                      font-family: 微软雅黑;
+                      line-height: 22px;
+                    "
+                    >审批人签字日期</span
+                  >
+                  <!---->
+                </div>
+                <!---->
+                <div class="plugin-allbox">
+                  <div
+                    data-key="Calendar_21"
+                    class="dplugin-box"
+                    style="
+                      margin-top: 0px;
+                      margin-bottom: 0px;
+                      text-align: left;
+                    "
+                  >
+                    <div
+                      class="dplugin-mobile dplugin-mobile-dCalendar dCalendar-vie"
+                      style="
+                        font-size: 14px;
+                        font-family: 微软雅黑;
+                        font-weight: normal;
+                        font-style: normal;
+                        color: rgb(96, 98, 102);
+                        text-decoration: none;
+                        text-align: left;
+                        line-height: 20px;
+                        letter-spacing: 0px;
+                      "
+                    >
+                      <span
+                        style="
+                          font-size: 14px;
+                          font-family: 微软雅黑;
+                          font-weight: normal;
+                          font-style: normal;
+                          color: rgb(96, 98, 102);
+                          text-decoration: none;
+                          text-align: left;
+                          line-height: 20px;
+                          letter-spacing: 0px;
+                        "
+                        >2022 年 11 月 29 日</span
+                      >
+                    </div>
+                  </div>
+                  <!---->
+                </div>
+              </div>
+              <div class="">
+                <div class="pluginnames">
+                  <span
+                    style="
+                      color: rgb(135, 135, 135);
+                      font-size: 14px;
+                      font-family: 微软雅黑;
+                      line-height: 22px;
+                    "
+                    >温馨提示：</span
+                  >
+                  <!---->
+                </div>
+                <!---->
+                <div
+                  data-key="MultiText_23"
+                  class="dplugin-box"
+                  style="margin-top: 0px; margin-bottom: 0px; text-align: left"
+                >
+                  <div
+                    class="dplugin-mobile dplugin-mobile-doneinput dplugin-doneplugin"
+                  >
+                    <div
+                      class="dplugin-multiText whitespace"
+                      style="
+                        font-size: 14px;
+                        font-family: 微软雅黑;
+                        font-weight: normal;
+                        font-style: normal;
+                        color: rgb(96, 98, 102);
+                        text-decoration: none;
+                        text-align: left;
+                        line-height: 20px;
+                        letter-spacing: 0px;
+                      "
+                    >
+                      1、请充分了解学校疫情防控政策和要求，提前准备好防护用品，注意防护。<br />2、每日进行健康监测，感觉发热时要主动测量体温，如实填报四川大学微服务“健康每日报”。<br />3、乘坐公共交通工具时，全程佩戴口罩，减少接触交通工具的公共物品和部位。随时保持手卫生（接触公共物品、咳嗽手捂之后，饭前便后，用洗手液或香皂等流水清洗；不确定手是否清洁时，避免用手接触口鼻眼；打喷嚏或咳嗽时，用手肘衣服遮住口鼻）。<br />4、请保持手机畅通，遇到问题请及时与辅导员联系。
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!---->
+              <div style="display: none">
+                <ul>
+                  <!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!---->
+                  <li>
+                    <span>提示：</span>
+                    <div
+                      data-key="Alert_28"
+                      class="dplugin-box"
+                      plugin="[object Object]"
+                      style="
+                        margin-top: 0px;
+                        margin-bottom: 0px;
+                        text-align: left;
+                      "
+                    >
+                      <!---->
+                      <div class="el-dialog__wrapper" style="display: none">
+                        <div
+                          role="dialog"
+                          aria-modal="true"
+                          aria-label="通勤报备"
+                          class="el-dialog sele_leave"
+                          style="margin-top: 15vh; width: 310px"
+                        >
+                          <div class="el-dialog__header">
+                            <span class="el-dialog__title">通勤报备</span
+                            ><!---->
+                          </div>
+                          <!----><!---->
+                        </div>
+                      </div>
+                    </div>
+                  </li>
+                  <li>
+                    <span>逻辑显隐：</span>
+                    <div
+                      data-key="ShowHide_31"
+                      class="dplugin-box"
+                      plugin="[object Object]"
+                      style="
+                        margin-top: 0px;
+                        margin-bottom: 0px;
+                        text-align: left;
+                      "
+                    >
+                      <!---->
+                    </div>
+                  </li>
+                </ul>
+              </div>
+              <div class="el-loading-mask area-vloading" style="display: none">
+                <div class="el-loading-spinner">
+                  <svg viewBox="25 25 50 50" class="circular">
+                    <circle
+                      cx="50"
+                      cy="50"
+                      r="20"
+                      fill="none"
+                      class="path"
+                    ></circle></svg
+                  ><!---->
+                </div>
+              </div>
+            </div>
+            <!---->
+          </div>
+          <!---->
+          <div class="wxformbtn">
+            <!---->
+            <button class="mReminder">预览表单</button>
+            <!---->
+          </div>
+          <!---->
+        </div>
+        <div class="processimg" style="display: none">
+          <img
+            src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACgAAAAkCAYAAAD7PHgWAAAFyklEQVRYR82Ya2wUVRTH/2emS7s7sw3yMiFASDAhsbwSPighNbtTKAEfAQJBgzE+ouIDEoFA3Wl1pZ0tyMOIQgJ+QEJMEFCihIjY3S2ElITYII0gGAEhJkrVQLuv0t29x8x0F0q7ZWcLLd5Pk5n/Oec393HuuZdQQJu7lYtvtkcqSSryMIvpIJoA5mEAhgCIAPgToHMMapKL5CMNa4t/KcB9TinZceCpT4yXWaxm5qUAhtqxsTREzQBvE53KnkY/pWzbdRPeFdDjb1WlYtUPIVYAcHSza2PGSZJwnhmtEtDJIDcI48A8FURTwSzf1vMlSZZWNFQphwuF7BPQY0SnSeADAE3I9EYSTF9CpHcNb1GP7d9P6b6CVQTahwPyIjCWMXjabR193pZ0vdXsp7hd0JyAmhGbC+AAwC5rpEDfyEJ652iN87Jdx1mdVh9fAOYtYB5vvWOcJsLcoK5es+OrF6DX6JhDSH3bNfEpTsRvBn3qbjvO+tJUbmQlnYpvZ8EvZDS/FnVy+dEP3K35/N4B6F0XKSOZmgCUMpCQwE8GdXc4nxO7372BmEHMvsyo/JhOusob/dRxN/tbgFYKicROAZgC0E0AC0K68p3d4HZ1WiBeDxZV1mgT7Qj7lGW2ADUjpgNc15UdaFnQp+ywG7RQnWbE9wDieRAxszQ7rDuDffmwerA8EBnpYOkSwCqAH0K6Wllo0EL0Hj+rkiN+FuBxAM6Fkspk+Enk8mEBakbMD/D7AASneUr4PffZQgL2R6vVxReDxL6uhS0tCesu67lnIzCTFohdBTDGTCdBXZnfn4CF2zBpRqwFwCQCnQjqSnlOQG8gPpNYnLA+Mj0TqlYOFR6sfxZaIPIGmLabkVNCnnA8R54lrxGrIfA6APFrSeWhs37q7F+4wq3MHYchX7O2RaLXQj7ls15DrNVFD4HwFAihkE+tKDzMvVlogWgLGJPB2BWqVl/uDWhEzwOYCNAnIV0xi4IBax4/l5AjvlkCXQrqrs3WAq2L7ATRq9Zq1tUy812FEX2Yga1EdIY0I3rdLKGYsTZcrX44YHQAvLWxeSSxVdEQYUvQp67SAvHVYLERwPWQrg6r3MijUp0xc/d6FMANE9Cccw4Cvx3U3dsGEnDGFnY6E9EgQDOykER0QQg2N4W0cGCMlKIGMJeBzGqJXyLNiEQAUhlYGdbVjwYS0PQ9cwO7i1PR77OQAH42U01XXPoN4EdMOIL0StDn3E1eI3qVgLHEHAhWu/WBBuwD8nbYbnAWsjcQDRPDA9CBkK4sHgzAPiF7wFmAFYHox8wwV+8fIV0dO1iAvSBzwGV6ML6QWHzVNWm5LOhznxtMSI+/fYTkkGvBdDRU7TrYKw8+5v+31OUo/osAJ8BGSHdXDyZgvlhWNVMRiO5lxhIwWhMuZfzJlZTIZzhY3y1AT13b4xLJJ81nhrQmrLvMxPm/aLdK/gojdoTBc8wbAkmWJzVUOc0S7IG3W4DeDR0TKZUy6zPzNNfUNsLlaX6dkg+a8I5TXYURX8UQmzJZ/WDbFdeS5p33F3L2htjoVGfaHa4pvWDn53uci80qN74P4EUZyK/brrievV+Qs+o7ZgmRMlOaQuSYEvQV501pvQ7uXcfPxGFAZGpDapLkm881VA27hznJVBFILOeuqsWcQh0Q8qRQTcnFfL2Y8+rD479cIjlGfQHwwoyDCEOqbU86txVyr2Laeutj00mwCebN+LrBxPPDPvexfHDW5tG3yDrUrGGglrI3W4xWkLRLQOxt1JUzAHEue7NiKRGJeYL5RTDPoWwcwulUmpcer3HbvjfMez9oXYcUyVvBQusB8zcDLQS6TMTtzOQAeCSIJoJ5MoCibvp2Bm1qH+FaX2hmyAuYDaKtTzyBtFgO4GmAi+0MD4DfAdotkulPG/2l/9i0uUNmGzBr5fFfH0pDijUJmAkWZUwYDUYpwEkC3RCMiyThJ4YUDr/rPGVWIP0By9r8B5TCYD7Tv+ZxAAAAAElFTkSuQmCC"
+            alt=""
+            class="imgbtn"
+          />
+          <div class="svg">
+            <!--?xml version="1.0" encoding="utf-8"?-->
+            <!-- created with bpmn-js / http://bpmn.io -->
 
-<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="346" height="122" viewBox="463 211 346 92" version="1.1"><defs><marker id="sequenceflow-end-white-#878787-0vfrgtcr30y7jv4t8ro77vhz6" viewBox="0 0 20 20" refX="11" refY="10" markerWidth="10" markerHeight="10" orient="auto"><path d="M 1 5 L 11 10 L 1 15 Z" style="fill: rgb(135, 135, 135); stroke-width: 1px; stroke-linecap: round; stroke-dasharray: 10000, 1; stroke: rgb(135, 135, 135);"></path></marker></defs><g class="djs-group"><g class="djs-element djs-connection" data-element-id="SequenceFlow_0ag8cee" style="display: block;"><g class="djs-visual"><path d="m  505,257L578,257 " style="fill: none; stroke-width: 2px; stroke: rgb(135, 135, 135); stroke-linejoin: round; marker-end: url(&#39;#sequenceflow-end-white-#878787-0vfrgtcr30y7jv4t8ro77vhz6&#39;);"></path></g><polyline points="505,257 578,257 " class="djs-hit" style="fill: none; stroke-opacity: 0; stroke: white; stroke-width: 15px;"></polyline><rect x="499" y="251" width="85" height="12" class="djs-outline" style="fill: none;"></rect></g></g><g class="djs-group"><g class="djs-element djs-connection" data-element-id="SequenceFlow_1a2q74e" style="display: block;"><g class="djs-visual"><path d="m  678,257L767,257 " style="fill: none; stroke-width: 2px; stroke: rgb(135, 135, 135); stroke-linejoin: round; marker-end: url(&#39;#sequenceflow-end-white-#878787-0vfrgtcr30y7jv4t8ro77vhz6&#39;);"></path></g><polyline points="678,257 767,257 " class="djs-hit" style="fill: none; stroke-opacity: 0; stroke: white; stroke-width: 15px;"></polyline><rect x="672" y="251" width="101" height="12" class="djs-outline" style="fill: none;"></rect></g></g><g class="djs-group"><g class="djs-element djs-shape selected" data-element-id="StartEvent_1" style="display: block;" transform="matrix(1 0 0 1 469 239)"><g class="djs-visual"><circle cx="18" cy="18" r="18" style="stroke: rgb(52, 168, 83); stroke-width: 2px; fill: transparent; fill-opacity: 0.95;"></circle></g><rect x="0" y="0" width="36" height="36" class="djs-hit" style="fill: none; stroke-opacity: 0; stroke: white; stroke-width: 15px;"></rect><rect x="-6" y="-6" width="48" height="48" class="djs-outline" style="fill: none;"></rect></g></g><g class="djs-group"><g class="djs-element djs-shape" data-element-id="StartEvent_1_label" style="display: block;" transform="matrix(1 0 0 1 476 282)"><g class="djs-visual"><text lineheight="1.2" class="djs-label" style="font-family: Arial, sans-serif; font-size: 11px; font-weight: normal; fill: black;"><tspan x="0" y="9.899999999999999">开始</tspan></text></g><rect x="0" y="0" width="23" height="14" class="djs-hit" style="fill: none; stroke-opacity: 0; stroke: white; stroke-width: 15px;"></rect><rect x="-6" y="-6" width="35" height="26" class="djs-outline" style="fill: none;"></rect></g></g><g class="djs-group"><g class="djs-element djs-shape" data-element-id="UserTask_1vz3p4h" style="display: block;" transform="matrix(1 0 0 1 578 217)"><g class="djs-visual"><rect x="0" y="0" width="100" height="80" rx="10" ry="10" style="stroke: rgb(161, 196, 254); stroke-width: 2px; fill: rgb(235, 242, 253); fill-opacity: 0.95;"></rect><text lineheight="1.2" class="djs-label" style="font-family: Arial, sans-serif; font-size: 12px; font-weight: normal; fill: black;"><tspan x="20" y="43.599999999999994">辅导员审批</tspan></text><path d="m 15,12 c 0.909,-0.845 1.594,-2.049 1.594,-3.385 0,-2.554 -1.805,-4.62199999 -4.357,-4.62199999 -2.55199998,0 -4.28799998,2.06799999 -4.28799998,4.62199999 0,1.348 0.974,2.562 1.89599998,3.405 -0.52899998,0.187 -5.669,2.097 -5.794,4.7560005 v 6.718 h 17 v -6.718 c 0,-2.2980005 -5.5279996,-4.5950005 -6.0509996,-4.7760005 zm -8,6 l 0,5.5 m 11,0 l 0,-5" style="fill: white; stroke-width: 0.5px; stroke: rgb(66, 133, 244);"></path></g><rect x="0" y="0" width="100" height="80" class="djs-hit" style="fill: none; stroke-opacity: 0; stroke: white; stroke-width: 15px;"></rect><rect x="-6" y="-6" width="112" height="92" class="djs-outline" style="fill: none;"></rect></g></g><g class="djs-group"><g class="djs-element djs-shape" data-element-id="EndEvent_0u8md9o" style="display: block;" transform="matrix(1 0 0 1 767 239)"><g class="djs-visual"><circle cx="18" cy="18" r="18" style="stroke: rgb(234, 67, 53); stroke-width: 4px; fill: transparent; fill-opacity: 0.95;"></circle></g><rect x="0" y="0" width="36" height="36" class="djs-hit" style="fill: none; stroke-opacity: 0; stroke: white; stroke-width: 15px;"></rect><rect x="-6" y="-6" width="48" height="48" class="djs-outline" style="fill: none;"></rect></g></g><g class="djs-group"><g class="djs-element djs-shape" data-element-id="EndEvent_0u8md9o_label" style="display: block;" transform="matrix(1 0 0 1 774 282)"><g class="djs-visual"><text lineheight="1.2" class="djs-label" style="font-family: Arial, sans-serif; font-size: 11px; font-weight: normal; fill: black;"><tspan x="0" y="9.899999999999999">结束</tspan></text></g><rect x="0" y="0" width="23" height="14" class="djs-hit" style="fill: none; stroke-opacity: 0; stroke: white; stroke-width: 15px;"></rect><rect x="-6" y="-6" width="35" height="26" class="djs-outline" style="fill: none;"></rect></g></g></svg></div></div> <div class="processrecord" style="display: none;"><ul><li class=""><div class="proname"><span style="border-color: rgb(76, 118, 213);"></span> <p>
-                发起者
-                <span>2022-11-29 19:10:29</span></p></div>  <!----> <div class="tit"><!----> <span>处理人：贺翔</span> <span>&nbsp;&nbsp;计算机学院（软件学院）</span> <div>操作意见：<span style="color: rgb(66, 133, 244);">提交</span></div> <!----> <!----></div> </li><li class=""><div class="proname"><span style="border-color: rgb(23, 191, 106);"></span> <p>
-                辅导员审批
-                <span>2022-11-29 19:14:54</span></p></div>  <!----> <div class="tit"><!----> <span>处理人：宁黎苗</span> <span>&nbsp;&nbsp;研究生科</span> <div>操作意见：<span style="color: rgb(66, 133, 244);">同意</span></div> <!----> <!----></div> </li></ul></div> <div class="showBpmn_class" style="display: none;"></div></div> <!----> <!----> <div id="showVerify"><!----></div> <!----> <!----> <!----> <!----> <!----> <!----> <div class="el-dialog__wrapper" style="display: none;"><div role="dialog" aria-modal="true" aria-label="dialog" class="el-dialog" style="margin-top: 15vh; width: 80%;"><div class="el-dialog__header"><span class="el-dialog__title"></span><!----></div><!----><!----></div></div> <div><div class="el-dialog__wrapper" style="display: none;"><div role="dialog" aria-modal="true" aria-label="提示" class="el-dialog el-dialog--center common_tip_dialog submit_layer" style="margin-top: 15vh;"><div class="el-dialog__header"><span class="el-dialog__title">提示</span><!----></div><!----><div class="el-dialog__footer"><span class="dialog-footer"><button class="zl-button zl-button-line zl-button-auto zl-button-mini">返回修改 <i class="iconfont iconarrowdown"></i></button>
-      &nbsp;&nbsp;&nbsp;&nbsp;
-      <button class="zl-button zl-button-primary zl-button-fixed zl-button-mini">确定 <i class="iconfont iconarrowdown"></i></button></span></div></div></div></div> <!----> <!----> <svg viewBox="25 25 50 50" class="dataSourceLoading" style="display: none;"><circle cx="50" cy="50" r="20" fill="none" class="path"></circle></svg></div><iframe id="printCasLogout" style="display: none;" src="./static/saved_resource.html"></iframe><script>if (window.location.href.indexOf("debug=1") !== -1) {
-      var jsScript = document.createElement("script");
-      jsScript.src = "/v2/static/js/common/vconsole.min.js";
-      jsScript.type = "text/javascript";
-      jsScript.async = true;
-      jsScript.onload = function () {
-        var vConsole = new VConsole();
-      };
-
-      document.getElementsByTagName("body")[0].appendChild(jsScript);
-    }</script><script src="./static/chunk-vendors.d4cda39e0f1a702a57ed.js"></script><script src="./static/chunk-common.f6ac48cd20c4a3177a61.js"></script><script src="./static/index.4ea7bfbaed9627339af2.js"></script><div id="progress_loading" style="display: none;"><div style="width: 0%;"></div></div><script src="./static/signature_pad.min.js" data-id="53965c2ac19f6d7bce084cee77ec6d4a" type="text/javascript" data-path="js/signature_pad.min.js" source-type="other" page-path="/matter/m_examine"></script><app-frame-86430 id="redeviation-bs-sidebar" class="notranslate" aria-hidden="true" data-theme="default" data-pos="right"></app-frame-86430><div id="redeviation-bs-indicator" data-theme="default" class="redeviation-bs-fullHeight" style="height: 100%; top: 0%;"></div><div id="android_retrun_btn">返回</div><img id="visits_collect" src="./static/collect" style="display: none;"><link href="./static/viewer.css" data-id="0f3cf1e554c3dc267a26e02fc41a1f6a" type="text/css" rel="stylesheet" source-type="other" source-status="loaded" page-path="/matter/m_examine"><script src="./static/viewer.js" data-id="9278a5f65af6c12cc0718acf690f478d" type="text/javascript" source-type="other" source-status="loaded" page-path="/matter/m_examine"></script><div id="page_load_finished" style="display:none;"></div><div id="page_load_finished" style="display:none;"></div><div id="download_plus_animation"></div></body></html>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              xmlns:xlink="http://www.w3.org/1999/xlink"
+              width="346"
+              height="122"
+              viewBox="463 211 346 92"
+              version="1.1"
+            >
+              <defs>
+                <marker
+                  id="sequenceflow-end-white-#878787-0vfrgtcr30y7jv4t8ro77vhz6"
+                  viewBox="0 0 20 20"
+                  refX="11"
+                  refY="10"
+                  markerWidth="10"
+                  markerHeight="10"
+                  orient="auto"
+                >
+                  <path
+                    d="M 1 5 L 11 10 L 1 15 Z"
+                    style="
+                      fill: rgb(135, 135, 135);
+                      stroke-width: 1px;
+                      stroke-linecap: round;
+                      stroke-dasharray: 10000, 1;
+                      stroke: rgb(135, 135, 135);
+                    "
+                  ></path>
+                </marker>
+              </defs>
+              <g class="djs-group">
+                <g
+                  class="djs-element djs-connection"
+                  data-element-id="SequenceFlow_0ag8cee"
+                  style="display: block"
+                >
+                  <g class="djs-visual">
+                    <path
+                      d="m  505,257L578,257 "
+                      style="
+                        fill: none;
+                        stroke-width: 2px;
+                        stroke: rgb(135, 135, 135);
+                        stroke-linejoin: round;
+                        marker-end: url(&#39;#sequenceflow-end-white-#878787-0vfrgtcr30y7jv4t8ro77vhz6&#39;);
+                      "
+                    ></path>
+                  </g>
+                  <polyline
+                    points="505,257 578,257 "
+                    class="djs-hit"
+                    style="
+                      fill: none;
+                      stroke-opacity: 0;
+                      stroke: white;
+                      stroke-width: 15px;
+                    "
+                  ></polyline>
+                  <rect
+                    x="499"
+                    y="251"
+                    width="85"
+                    height="12"
+                    class="djs-outline"
+                    style="fill: none"
+                  ></rect>
+                </g>
+              </g>
+              <g class="djs-group">
+                <g
+                  class="djs-element djs-connection"
+                  data-element-id="SequenceFlow_1a2q74e"
+                  style="display: block"
+                >
+                  <g class="djs-visual">
+                    <path
+                      d="m  678,257L767,257 "
+                      style="
+                        fill: none;
+                        stroke-width: 2px;
+                        stroke: rgb(135, 135, 135);
+                        stroke-linejoin: round;
+                        marker-end: url(&#39;#sequenceflow-end-white-#878787-0vfrgtcr30y7jv4t8ro77vhz6&#39;);
+                      "
+                    ></path>
+                  </g>
+                  <polyline
+                    points="678,257 767,257 "
+                    class="djs-hit"
+                    style="
+                      fill: none;
+                      stroke-opacity: 0;
+                      stroke: white;
+                      stroke-width: 15px;
+                    "
+                  ></polyline>
+                  <rect
+                    x="672"
+                    y="251"
+                    width="101"
+                    height="12"
+                    class="djs-outline"
+                    style="fill: none"
+                  ></rect>
+                </g>
+              </g>
+              <g class="djs-group">
+                <g
+                  class="djs-element djs-shape selected"
+                  data-element-id="StartEvent_1"
+                  style="display: block"
+                  transform="matrix(1 0 0 1 469 239)"
+                >
+                  <g class="djs-visual">
+                    <circle
+                      cx="18"
+                      cy="18"
+                      r="18"
+                      style="
+                        stroke: rgb(52, 168, 83);
+                        stroke-width: 2px;
+                        fill: transparent;
+                        fill-opacity: 0.95;
+                      "
+                    ></circle>
+                  </g>
+                  <rect
+                    x="0"
+                    y="0"
+                    width="36"
+                    height="36"
+                    class="djs-hit"
+                    style="
+                      fill: none;
+                      stroke-opacity: 0;
+                      stroke: white;
+                      stroke-width: 15px;
+                    "
+                  ></rect>
+                  <rect
+                    x="-6"
+                    y="-6"
+                    width="48"
+                    height="48"
+                    class="djs-outline"
+                    style="fill: none"
+                  ></rect>
+                </g>
+              </g>
+              <g class="djs-group">
+                <g
+                  class="djs-element djs-shape"
+                  data-element-id="StartEvent_1_label"
+                  style="display: block"
+                  transform="matrix(1 0 0 1 476 282)"
+                >
+                  <g class="djs-visual">
+                    <text
+                      lineheight="1.2"
+                      class="djs-label"
+                      style="
+                        font-family: Arial, sans-serif;
+                        font-size: 11px;
+                        font-weight: normal;
+                        fill: black;
+                      "
+                    >
+                      <tspan x="0" y="9.899999999999999">开始</tspan>
+                    </text>
+                  </g>
+                  <rect
+                    x="0"
+                    y="0"
+                    width="23"
+                    height="14"
+                    class="djs-hit"
+                    style="
+                      fill: none;
+                      stroke-opacity: 0;
+                      stroke: white;
+                      stroke-width: 15px;
+                    "
+                  ></rect>
+                  <rect
+                    x="-6"
+                    y="-6"
+                    width="35"
+                    height="26"
+                    class="djs-outline"
+                    style="fill: none"
+                  ></rect>
+                </g>
+              </g>
+              <g class="djs-group">
+                <g
+                  class="djs-element djs-shape"
+                  data-element-id="UserTask_1vz3p4h"
+                  style="display: block"
+                  transform="matrix(1 0 0 1 578 217)"
+                >
+                  <g class="djs-visual">
+                    <rect
+                      x="0"
+                      y="0"
+                      width="100"
+                      height="80"
+                      rx="10"
+                      ry="10"
+                      style="
+                        stroke: rgb(161, 196, 254);
+                        stroke-width: 2px;
+                        fill: rgb(235, 242, 253);
+                        fill-opacity: 0.95;
+                      "
+                    ></rect>
+                    <text
+                      lineheight="1.2"
+                      class="djs-label"
+                      style="
+                        font-family: Arial, sans-serif;
+                        font-size: 12px;
+                        font-weight: normal;
+                        fill: black;
+                      "
+                    >
+                      <tspan x="20" y="43.599999999999994">辅导员审批</tspan>
+                    </text>
+                    <path
+                      d="m 15,12 c 0.909,-0.845 1.594,-2.049 1.594,-3.385 0,-2.554 -1.805,-4.62199999 -4.357,-4.62199999 -2.55199998,0 -4.28799998,2.06799999 -4.28799998,4.62199999 0,1.348 0.974,2.562 1.89599998,3.405 -0.52899998,0.187 -5.669,2.097 -5.794,4.7560005 v 6.718 h 17 v -6.718 c 0,-2.2980005 -5.5279996,-4.5950005 -6.0509996,-4.7760005 zm -8,6 l 0,5.5 m 11,0 l 0,-5"
+                      style="
+                        fill: white;
+                        stroke-width: 0.5px;
+                        stroke: rgb(66, 133, 244);
+                      "
+                    ></path>
+                  </g>
+                  <rect
+                    x="0"
+                    y="0"
+                    width="100"
+                    height="80"
+                    class="djs-hit"
+                    style="
+                      fill: none;
+                      stroke-opacity: 0;
+                      stroke: white;
+                      stroke-width: 15px;
+                    "
+                  ></rect>
+                  <rect
+                    x="-6"
+                    y="-6"
+                    width="112"
+                    height="92"
+                    class="djs-outline"
+                    style="fill: none"
+                  ></rect>
+                </g>
+              </g>
+              <g class="djs-group">
+                <g
+                  class="djs-element djs-shape"
+                  data-element-id="EndEvent_0u8md9o"
+                  style="display: block"
+                  transform="matrix(1 0 0 1 767 239)"
+                >
+                  <g class="djs-visual">
+                    <circle
+                      cx="18"
+                      cy="18"
+                      r="18"
+                      style="
+                        stroke: rgb(234, 67, 53);
+                        stroke-width: 4px;
+                        fill: transparent;
+                        fill-opacity: 0.95;
+                      "
+                    ></circle>
+                  </g>
+                  <rect
+                    x="0"
+                    y="0"
+                    width="36"
+                    height="36"
+                    class="djs-hit"
+                    style="
+                      fill: none;
+                      stroke-opacity: 0;
+                      stroke: white;
+                      stroke-width: 15px;
+                    "
+                  ></rect>
+                  <rect
+                    x="-6"
+                    y="-6"
+                    width="48"
+                    height="48"
+                    class="djs-outline"
+                    style="fill: none"
+                  ></rect>
+                </g>
+              </g>
+              <g class="djs-group">
+                <g
+                  class="djs-element djs-shape"
+                  data-element-id="EndEvent_0u8md9o_label"
+                  style="display: block"
+                  transform="matrix(1 0 0 1 774 282)"
+                >
+                  <g class="djs-visual">
+                    <text
+                      lineheight="1.2"
+                      class="djs-label"
+                      style="
+                        font-family: Arial, sans-serif;
+                        font-size: 11px;
+                        font-weight: normal;
+                        fill: black;
+                      "
+                    >
+                      <tspan x="0" y="9.899999999999999">结束</tspan>
+                    </text>
+                  </g>
+                  <rect
+                    x="0"
+                    y="0"
+                    width="23"
+                    height="14"
+                    class="djs-hit"
+                    style="
+                      fill: none;
+                      stroke-opacity: 0;
+                      stroke: white;
+                      stroke-width: 15px;
+                    "
+                  ></rect>
+                  <rect
+                    x="-6"
+                    y="-6"
+                    width="35"
+                    height="26"
+                    class="djs-outline"
+                    style="fill: none"
+                  ></rect>
+                </g>
+              </g>
+            </svg>
+          </div>
+        </div>
+        <div class="processrecord" style="display: none">
+          <ul>
+            <li class="">
+              <div class="proname">
+                <span style="border-color: rgb(76, 118, 213)"></span>
+                <p>
+                  发起者
+                  <span>2022-11-29 19:10:29</span>
+                </p>
+              </div>
+              <!---->
+              <div class="tit">
+                <!---->
+                <span>处理人：张三</span>
+                <span>&nbsp;&nbsp;</span>
+                <div>
+                  操作意见：<span style="color: rgb(66, 133, 244)">提交</span>
+                </div>
+                <!---->
+                <!---->
+              </div>
+            </li>
+            <li class="">
+              <div class="proname">
+                <span style="border-color: rgb(23, 191, 106)"></span>
+                <p>
+                  辅导员审批
+                  <span>2022-11-29 19:14:54</span>
+                </p>
+              </div>
+              <!---->
+              <div class="tit">
+                <!---->
+                <span>处理人：李四</span> <span>&nbsp;&nbsp;研究生科</span>
+                <div>
+                  操作意见：<span style="color: rgb(66, 133, 244)">同意</span>
+                </div>
+                <!---->
+                <!---->
+              </div>
+            </li>
+          </ul>
+        </div>
+        <div class="showBpmn_class" style="display: none"></div>
+      </div>
+      <!---->
+      <!---->
+      <div id="showVerify"><!----></div>
+      <!---->
+      <!---->
+      <!---->
+      <!---->
+      <!---->
+      <!---->
+      <div class="el-dialog__wrapper" style="display: none">
+        <div
+          role="dialog"
+          aria-modal="true"
+          aria-label="dialog"
+          class="el-dialog"
+          style="margin-top: 15vh; width: 80%"
+        >
+          <div class="el-dialog__header">
+            <span class="el-dialog__title"></span
+            ><!---->
+          </div>
+          <!----><!---->
+        </div>
+      </div>
+      <div>
+        <div class="el-dialog__wrapper" style="display: none">
+          <div
+            role="dialog"
+            aria-modal="true"
+            aria-label="提示"
+            class="el-dialog el-dialog--center common_tip_dialog submit_layer"
+            style="margin-top: 15vh"
+          >
+            <div class="el-dialog__header">
+              <span class="el-dialog__title">提示</span
+              ><!---->
+            </div>
+            <!---->
+            <div class="el-dialog__footer">
+              <span class="dialog-footer"
+                ><button
+                  class="zl-button zl-button-line zl-button-auto zl-button-mini"
+                >
+                  返回修改 <i class="iconfont iconarrowdown"></i>
+                </button>
+                &nbsp;&nbsp;&nbsp;&nbsp;
+                <button
+                  class="zl-button zl-button-primary zl-button-fixed zl-button-mini"
+                >
+                  确定 <i class="iconfont iconarrowdown"></i></button
+              ></span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!---->
+      <!---->
+      <svg
+        viewBox="25 25 50 50"
+        class="dataSourceLoading"
+        style="display: none"
+      >
+        <circle cx="50" cy="50" r="20" fill="none" class="path"></circle>
+      </svg>
+    </div>
+    <iframe
+      id="printCasLogout"
+      style="display: none"
+      src="./static/saved_resource.html"
+    ></iframe>
+    <script src="./static/chunk-vendors.d4cda39e0f1a702a57ed.js"></script>
+    <script src="./static/chunk-common.f6ac48cd20c4a3177a61.js"></script>
+    <script src="./static/index.4ea7bfbaed9627339af2.js"></script>
+    <app-frame-86430
+      id="redeviation-bs-sidebar"
+      class="notranslate"
+      aria-hidden="true"
+      data-theme="default"
+      data-pos="right"
+    ></app-frame-86430>
+    <div
+      id="redeviation-bs-indicator"
+      data-theme="default"
+      class="redeviation-bs-fullHeight"
+      style="height: 100%; top: 0%"
+    ></div>
+    <div id="android_retrun_btn">返回</div>
+    <img
+      id="visits_collect"
+      src="https://service.scu.edu.cn/v2/static/collect"
+      style="display: none"
+    /><link
+      href="./static/viewer.css"
+      data-id="0f3cf1e554c3dc267a26e02fc41a1f6a"
+      type="text/css"
+      rel="stylesheet"
+      source-type="other"
+      source-status="loaded"
+      page-path="/matter/m_examine"
+    />
+    <script
+      src="./static/viewer.js"
+      data-id="9278a5f65af6c12cc0718acf690f478d"
+      type="text/javascript"
+      source-type="other"
+      source-status="loaded"
+      page-path="/matter/m_examine"
+    ></script>
+    <div id="page_load_finished" style="display: none"></div>
+    <div id="page_load_finished" style="display: none"></div>
+    <div id="download_plus_animation"></div>
+  </body>
+</html>
