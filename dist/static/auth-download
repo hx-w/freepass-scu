@@ -1,0 +1,148 @@
+<!DOCTYPE html><html>
+<head>
+    <meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"><meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no"/><title>微服务用户认证系统</title>
+    <link rel="stylesheet" href="/css/bootstrap.min.css"><link rel="stylesheet" href="/css/index.css"><!--[if lt IE 9]>
+    <script src="/js/respond.min.js"></script>
+    <![endif]--><script src="/js/jquery.min.js"></script>
+    <script src="/js/bootstrap.min.js"></script>
+</head>
+<body>
+<iframe id="loginIframe"></iframe>
+<div id="default" class="container">
+    <div class="border col-lg-4 col-lg-offset-4 col-md-4 col-md-offset-4 col-sm-6 col-sm-offset-3">
+        <div class="system">微服务用户认证系统</div>
+        <div class="service" id="targetSystem">一站式服务大厅</div>
+        <form method="post" id="loginForm" action="login">
+            <div class="form-group">
+                <label>
+                    <span>用户名</span>
+                    <input type="text" class="form-control" name="username"></label>
+            </div>
+            <div class="form-group">
+                <label>
+                    <span>密码</span>
+                    <input type="password" class="form-control" name="password"></label>
+            </div>
+            <div class="form-group" style="display: none;" id="captchaParent">
+                <label>
+                    <span style="display: none;" id="captchaLabel">验证码</span>
+                    <div id="captchaDiv"></div>
+                </label>
+            </div>
+            <div class="form-group">
+                <input class="btn btn-login" type="submit" name="submit" value="登录"></div>
+
+            <div style="display: none;">
+                <input name="type" value="username_password"/><input name="execution" value="f1baa0a2-515f-4fb9-8109-007849e31773_ZXlKaGJHY2lPaUpJVXpVeE1pSjkuaXFScU5NZDczd3pIK1AvMjYzQWhTdlIvUE1oNzNGQWYwdmswK3pGM2tkTFdXbUhuWThPaE5KVVNOTVZ2bFpBa1g4QnY3b25pYjBXS0hBK3BvQ1llVk5zczgzdksyaktNTnRZN3Q1WkdlckZVeHFJbkVrTXNIODF1bGNwM2RDVHJlOFFTT09acGtrMDczSlJNdHpxVDcxN2tUcVUxbE11TEVSMy93a21RMUFCalNMd2pFdFo1SmVMdUgyNWtJT2dKbU9obElWU0tlWkozMEozSGZ5YXNINUtBRVRtd1d1M3lpZVVTUmJHS1NBYTd2UTFXQXVodHlFOGxoSU15cldiOGs4YThOUTVEck5oWHIzcElpb3c0KzBlamRZQ1FkUlVaUEp6WkI3ZmJxTC9RVGZvOFNMTzA4RWhpWGJVWWwvMEZFVzlObEp3Y0RiK1NhaGV4bllERW5DQ2ljNzQxL2Y4TXVqUkcySExUcTVLTyswRzRCdEVxS1VSTmVzMDhYdlNFb0ovb0VscitlNGErSWwrRHpYcmxrMERPM2J1TlhqTmdQNXh6K3hncm9JUlJ6RXRic2RwSS91Z09Od3MzTmZxZHRON2FBdHBOZE5sdjc4NndtY0xlN1BIUUZQZ212VVF1eW5PRytDT3RtS1FDaEZLbHhtOFFsampUMjQ1azdsNi9XQVI4OGYzbGNvL04wRVpTRkJpcGR6RDdxdFd3VHVmMFlJT25VTDZPTE5nQkprMk0zb09VVWExOU15cm1teUdqSTNhZ3R1ZkNXcUVzb09RK25zUWFsSkRHM1Z5VVBZVjlEdnhLY1hQNkxQU3Z2dUIrbEZVdkZ1Mm5PN0NnaEhtUWY0YXR0ZmRlZnFqVklPOXJVb0hHYlNLUWh4TXVQV0VGcDE0OXFUVXVhZDZ1QUhYWHJNVUFQODZHeFFyTnhLdm8rNldtU1RLUkFWbmlYc0hiQmlXd2tCVkxwTEU4UTRVUjMzNFpQeU0zTGpUV25vUlJRVzZJRUtaLzFrbWlyLzdSZFY5K0s1dDEzUHliRU9HNkwxNXhqdWE3ZWhrMHRHZHFYV09mQU9WOVNuQ1Z1WUlCL3ZuVTMyOHBaT0h2eDRaeUMvYXpGWTJDUndRRnA1U0VTd2ZUTFg2VW5YVS9iZElNeVBBdEVXWDBVQjV0Ujh6aGtKbHAzd29qVmVSYkVUdkFSMnpJdlQ1cm9IVWpWT0hNOWdDaFY3L1B0RUJ3a3lBRFlrK1J6T0hWNUVOSUhaYUxrZ1l1VHJ4ZVI2VFRxaCs3MWV3Y0tmMGh1dW13VlRmZ0craG9yd1dJcW55ZWNJaGtScnFXdGh3Z2x6bDc0ckI0enZUajU5Z2RVam1LV0hlSzBLUUZHWkdkbW9RMjllN2tVUkQrWVVOR2FjV0I5aU02SVJNNnpFMUozcVF2Q1BlcmxCY28vQmRxeFROM3VTaTlNbEY2Vnp0Q3M3WXNseTFVN2tlVjlKNHc1WGJkV1ViVTFnYVZrbjBBYlRBd25wQVFBTnVZcWZaMEVCODNpMW0zeEQzUEt5b0RTV1RCVXQ2RWVzdEhoMVVGZVNCNCtkZC94c3ZWbTZBV3RvV25LaExKZXJ3RW16SkZ0Z0ovbWFIalNGd1hHN3p1bElJc2Jkdjh5ZjlBUDBTTUh0c3cyci9qUDcrMmwyWEN0S0xtN2lvajN5K3dDOTdqdUVMKzEvOGdhU21WbFZqRDMxWmd6NEJmZUlKaVpzaUMxZm50ci9zQzJsRlJIUC82ZWppcm5oMVRmVFNWaXpOZldKTDBteVhYQnljbEU0aXdXSkFWbnFkRjMyYTJnNjVYY01WNFlmTFZEQTNiNU5MNnhTWHBTVTBlMFhMdnp0djk5WExOMXdkWi9EMWFYREt3NTBIZnJMSXdwMTA5ZlZ3TW1ubzI3bkZ5cmpWNVRGYlAycHlwbUU5TWdMZ3FNdjRvOHd3ZnArRnJrSzBRTE5wVmgxeDlUQ3lPUlNqVnlQMnh2WGdDaUhhOGZFRXBXYmtMd0J5VUp4Q1VRNmtzTHZBMUEwajd0UGZ2cFczMVMrZGEyemszTW9tYXp0SWNVWXJ0OG5xMG11RjVLMHBDd01KeDIxS3RkUDMrMWdBK1FpZmtmcU91NjlFaEt4ZlRCM3JlTTArVXI0d1MxSTRkU0tlQ1VQMW1PQUJCeDBCZVdZMWVqcG4zR1Yxekg2VitMVm9SWUdwMHROSlh4VmRNTDh6ODhNNXdTVDU0eU1RVkQ2ZzQvenl5eTFJemFuUXZrVG5ndmZBT0dGUlRDWStlY2Nuc09MYUFXUHg4cmZLbkdvdkJ1YWd3M25KVUd6WGMvRnN6d1U0Vnh2ckZoUTFiNTV5L080SmVBTUx0YUd6MlE2SWFOUzNWTENEbDBSbWJUbUx2YmNSZGMzYit5V0xMYURvM2VoTnp5Uk9lMEg0N2c3RWdyOVZFMzFqcHJLSi9BKzlzT3JkbGxadytJbGl3TnZHUkZNWlRvQ1JNeTRnK3NVRnVYbStKaFhJOFVvVVQ4VHhlVDBYdWc0dVJGS3l5OWRUZjZSdGFXcWtlRDhFNWVnVjdzRURYSVVjYTZCRG9STTVxdEJTSEF4K0NyaXcvT0t1bDlmZlJsVGpoem1Ga0NSMXplMHRlYjRjeFFoUmorL05QREZ4bWluakNPeFBwYU4rWnVlUjhPVWZOL3orMUZaT21WZlNyRWN2amFpSHNyYStzWGE4Y2V5QTV5QmtWWDVoR2ZnSmR0THltMk5GQmVvVHQzTTFmU0pxS1crVU42QXFyN1AybUdRRytNam5vVXdDMzNRMmJXeW40V0E3ZjhoMVpsTElBemdSb3dVRWVrakNreFovS3RpZjNXejVzQmJnMEVjNHhVMnBGZlhEWXUrYk1PS0d2RnY5amxRbnM5QnUrU3dPVjQwWkxMVjZmWnFzYmRCMWRIa1VJa2EwSjVPdFBjRlBRWmlHVE82QnJmelo2Z1F0emhGcGlJOXJ0cnVXa29qY0VXUmQvdi9XVWRXQ0VlZzAwbVROaEhTT2pHV091Wjg3a0ZpWFVRVEpibENRbmIwTS9jS2g1U2VhNzd2cUlXejNmeUViNG16RFFCWkpKbFI1dkk0UkZLOG9KY2JRaGFYWWkvTm4rdjBnaU5ndndtWFFUOTBUOVZ2OE8vUkhQQTVEQlR6cmVQYjVTME5pYTdoalhDRlJmQWVuZkJCVGFGcXZ3NTM2T1E0QjRpWW5XOEdsaVJaV3RtWldOQjN6MEJnSWdiTWlucWk0VFdqTGloY1B4ejdjTjhXZml2V3JCSnN0d1BZaHlPK21yZDQrZmdhdzRtQi9KOTBnZmVWNmRpYkZYOStTelZsM21FUjdESjBZK0xnS3lyZURpbDJJWXhUdmp3ZzZkcHN4VHQ4MDZSL3M1SU94QUpiNG1VUjlFS2t2NXZMYUdrQ3RINmFKNlBWb0tvWm5CS3B6K2kvNDl2cks2WFNGcTNZQnBXME5GSU1LRzRXT20yeEZSWjZMQ2RrT2JOZzZFV3BEUm9qdEhMTWc3T2p4ZWxpSFBMRjVLZWcrUzY2L3Q2RUwxS3dnYzJVZE9Gb2xmSElISXdzMmp0ck1BbUQzd255WWZKRTRSbUQ0MUR3T1NCM015VDdpa2NlSXArSWJmUGZiOFZPT25LQ2gxSm0zeVhieTgvbnV5dlc5dXlPUGZ4dmtBNHhGU1RKYmJ0SlZHOXhybzRoVjQzK2pWdG9nei9NT2RoSW9RQW85a0JvSUVnak1sZ1hmOGJXWWdaTldwSFNYN1Z1bVRWMGhPYVUxelRFUGtOQ1djdkhtSDdaUUUwUTdlQlhNOTdhQVFjNHlyTFhjY2cxeUE2VEE5dFJXQzhNOTlUbEZRcDh5ZG9wV0R1cXdjVU53eVlodzNqeFpMbk82dkgrNUd6QVh3b3FRWXg3SENHdWNmYUNBMGE2bmRFTHJ0TWRldXIzamdISHdMWXVBZXAwbG1JUDIzTW1GZDFra3dzVGJRdllDMzYvUVRDTUVja2JNL2NLVVdwRTN1K0Y4cmNtazVybkw2VUdtSFVCeWpkR3BtQ25SYktHOFdob1FXTkcxczNObnJpNGdsMUhBU0M5UW5nU09FZWIraDlsUGJSYnNTMnRIMFdWUkFoYXJDODA3RXpoQ2hxcGlVN0NRUU5aNUU3RzdWdWVvSDhIT0VrbGQ4L25qa2s4N1JEcGMyUmY3TlJyWXdsc1Q0cUI1N1FLWHFMYlgyRk1za25mWVdWYlZkT3JremhpSmRkSytkb3dUZ3VLZlY3MktIVE02V3VMNm10UGpmbVcxZVVEK3dEZWdKUERady9VckRiQjN3ckxPVEpWcnhUYUpCcG1wYnZPNHNtS2t1M01ER0xaa3JmbDdYaWM3RnBDMTY4SWxORGk0RUdvSGNMcnI4aUorY2xBbHphbmVxZnJqaVZ5bHBOWmhDTFRYdlIzVkJnRkhEakVNVzB6ck5XVlNDZTlySkpZMnN4WHkrVzZmNHhCR0ZtOGxacWRUTE9IU1FuUkM0WVhQZmVBamVWRVpCcGxQVDNlSzdGWWNjVWFpR1hIcm4yWlJMV1FHd1pTeFBwcFZFZGZEalBvM2NWcXBrdHIzZDhzRk84cG9HL25mRStEK3M4dXRsR0V3ZWRkUXVRZUJkd0tMRm5uVFhmb3dVM3pSTTZYMVBwTEsrK0FjTENQa3VpRnhMODJqSnc1Q3VVR29wVnVlZWNMVTV0bm0xR0xDcTBxa0o2cnJ4WWxEVmVJWjJuR1dSYk4zSXFUYXFseTBOTjRjSVBMWXVMY1NXeWxSM0tSV0RZbkNOY1ZrWjRBV28zZjBOOU8zSTVmSVp3UXhyaitEc3BEV01wbGVSSmlFTnp6bG5sT3NWWEdoMDRVQjNwZ2ROTzArTkVFRnd2K2F4cmlvemViT3hvNUdETWRrQjAyM2R1MUVpWWRlNkpZRDJudGd3K3ZTRE1RWFpIOUIyZ0dZaUVJV2taL2dJQlAxOGRESUkxVGhjTjFQRVM1dmFmbjlKSlRTV09KTUl2aGpyeVVnUWZwVkVmZEdLMDNuUlJWTHI1WE81MWRieVRTcjBaWFVOTkx2RXh2eHRFRHZxbjNnZCt3S2RNNDhXN3FyS2xWMjk2c3IvWkxIb0Z0aUdkWHA1Z3FOTkVaUi90U3YvYTVianRBZStkYzdxWSsxRFlWRzNWT0pNbmhOejVQR1dZcSsrckl0dy9YR2tPQjVBdGdud0hOTi9hS2ZXZk80Szg0NzlGZU1ZT3krSGl3VVJMQkJKM3lVM3BoWCt6UEwvTXNKL3JNN3YxaGtNMCtBellWaE5Ucy9MSWttUDJEOHdtMDZxTHhLUVEyckJqOVJXeWIwYlg0OEdiSUJEYlpKMVlwZUJtaE1IUnpTekdYOWlycktjUlAwZzI0N3haNFgrbFFZN29xazVseVlxTTNDWlJWbW9zaHAreHBOWFlXWG80Z0dPSjRremxJSUlXUWpwcVlKRDNFeWxWa01oWEp2aGFnTElpYVZMMUZ5T1paaXg0c0dOR1VhNERRZXBrSm5aTUU2Rnd1Rjc5UzlVd0RXSjNRPT0uR0dUWTFVWUxZT0VUZTJyR1NSQ0JhNEpqdnJEQlI0Yzh6dkN0S2ZwRXg5dnB5d09GMWxwWi1Sd283U19WQmtDd2haU3lqNHIwbS1Jbi1VMjVUSlFBTGc="/><input name="_eventId" value="submit"/></div>
+        </form>
+        <div class="hint">此页面为兼容性视图<br/>请使用Chrome等现代浏览器以获取最佳体验</div>
+    </div>
+</div>
+<div id="language" style="display: none">zh_cn</div>
+<div id="pac4jUrls" style="display: none">
+    <a href="clientredirect?client_name=mc-qr&amp;service=https://service.scu.edu.cn/site/login/cas-login?redirect_url%3Dhttps%253A%252F%252Fservice.scu.edu.cn%252Fsite%252Fattach%252Fauth-download%253Ffile_id%253D1408301%2526inst_id%253D109705057%2526sess_id%253D0">mc-qr</a><a href="clientredirect?client_name=mc-wx&amp;service=https://service.scu.edu.cn/site/login/cas-login?redirect_url%3Dhttps%253A%252F%252Fservice.scu.edu.cn%252Fsite%252Fattach%252Fauth-download%253Ffile_id%253D1408301%2526inst_id%253D109705057%2526sess_id%253D0">mc-wx</a>
+</div>
+<script type="text/javascript">
+function getParameterByName(name, url) {
+    if (!url) url = window.location.href;
+    name = name.replace(/[\[\]]/g, '\\$&');
+    var regex = new RegExp('[?&]' + name + '(=([^&#]*)|&|#|$)'),
+        results = regex.exec(url);
+    if (!results) return null;
+    if (!results[2]) return '';
+    return decodeURIComponent(results[2].replace(/\+/g, ' '));
+}
+
+var config = {};
+// 当前语言
+config.locale = $("#language").text();
+// 错误信息
+config.error = $("#errorDiv p").text() || null;
+// 登录目标系统
+var targetServiceName = $("#targetSystem").text() || null;
+if (targetServiceName) {
+    config.service = {
+        name: targetServiceName,
+        href: getParameterByName('service') || getParameterByName('target') || getParameterByName('TARGET')
+    };
+}
+// 第三方授权登录链接
+var pac4jAs = $("#pac4jUrls a");
+if (pac4jAs.size() > 0) {
+    config.pac4j = [];
+    pac4jAs.each(function(i) {
+        config.pac4j.push({
+            href: pac4jAs[i].href,
+            name: pac4jAs[i].innerText
+        });
+    });
+}
+
+function getPageConfig() {
+    return config;
+}
+
+function doLogin(username, password, type, captcha) {
+    var lginfm = document.getElementById('loginForm');
+    $("#loginForm input[name='username']").val(username);
+    $("#loginForm input[name='password']").val(password);
+    $("#loginForm input[name='type']").val(type);
+    if (captcha) {
+        $("#loginForm input[name='captcha']").val(captcha);
+    }
+    $("#loginForm input[name='submit']").click();
+}
+
+function setLanguage(locale) {
+    var fullURL = window.location.href;
+    if (fullURL.indexOf('locale=zh_cn') !== -1) {
+        window.open(fullURL.replace('locale=zh_cn', 'locale=' + locale), '_self');
+        return;
+    }
+    if (fullURL.indexOf('locale=en') !== -1) {
+        window.open(fullURL.replace('locale=en', 'locale=' + locale), '_self');
+        return;
+    }
+    var baseURL = fullURL.split('?')[0];
+    var params = window.location.search.substring(1);
+    if (params.length > 0) params = '&' + params;
+    window.open(baseURL + '?locale=' + locale + params, '_self');
+}
+
+function ie8() {
+    return navigator.appName === "Microsoft Internet Explorer"
+        && parseInt(navigator.appVersion.split(";")[1].replace(/[ ]/g, "").replace("MSIE", "")) <= 8;
+}
+</script>
+<script>
+// 验证码
+$("#captchaParent").show();
+$("#captchaLabel").show();
+config.captcha = {
+    type: 'image',
+    id: '0298365410'
+};
+var captchaId = 'captcha?captchaId=' + config.captcha.id;
+var captchaDiv = $("#captchaDiv");
+captchaDiv.append('<input type="text" class="form-control captcha-input" name="captcha">');
+captchaDiv.append('<img class="captcha-img" src="' + captchaId + '" onclick="this.src=this.src+\'#\'"/>');
+</script>
+<script type="text/javascript">
+// 手机验证码登录
+config.tokenLogin = {
+    enabled: true
+};
+</script>
+<script type="text/javascript">
+config.mobileCampus = {
+    baseHost: 'wfw.scu.edu.cn',
+    security: true,
+    baseUrl: 'https://wfw.scu.edu.cn',
+    appid: '200200416213558280',
+    title: '移动校园',
+    autoRedirect: false
+};
+</script>
+<script type="text/javascript" src="/cas/js/init.js"></script>
+</body>
+</html>
